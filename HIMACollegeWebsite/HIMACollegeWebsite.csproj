@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Logo_HIMA.png" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\Administration.aspx" />
     <Content Include="Pages\Admissions.aspx" />
@@ -131,7 +132,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Assets\Logo HIMA.png" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Pages\Programs.aspx" />
     <Content Include="Scripts\bootstrap.js" />
