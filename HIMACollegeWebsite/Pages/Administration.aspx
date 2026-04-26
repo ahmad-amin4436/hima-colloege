@@ -9,7 +9,7 @@
 
     <!-- Background Image -->
     <div class="position-absolute top-0 start-0 w-100 h-100">
-        <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80"
+        <img src="/Assets/Carousel1.png" />
              class="w-100 h-100 object-fit-cover" />
     </div>
 
@@ -22,8 +22,7 @@
         <h2 class="display-4 fw-bold text-uppercase">Administration</h2>
 
         <p class="lead col-md-8 mx-auto">
-            With a steadfast focus on quality education, we strive to produce competent 
-            and responsible graduates as per industrial needs.
+           Leading the way in engineering education through transparent governance and innovative management.
         </p>
 
     </div>

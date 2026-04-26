@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using HIMACollegeWebsite.DAL;
 
 namespace HIMACollegeWebsite
@@ -7,127 +12,153 @@ namespace HIMACollegeWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["admin"] == null)
-                Response.Redirect("AdminLogin.aspx");
-
-            if (!IsPostBack)
-                LoadAllData();
+            if (Session["admin"] == null) Response.Redirect("AdminLogin.aspx");
+            if (!IsPostBack) { BindPrograms(); BindFaculty(); }
         }
 
-        // ================= SWITCH VIEWS =================
+        // --- NAVIGATION ---
         protected void SwitchView(object sender, EventArgs e)
         {
-            System.Web.UI.WebControls.Button btn =
-                (System.Web.UI.WebControls.Button)sender;
-
-            MainMultiView.ActiveViewIndex =
-                Convert.ToInt32(btn.CommandArgument);
+            int index = int.Parse(((LinkButton)sender).CommandArgument);
+            MainMultiView.ActiveViewIndex = index;
+            btnTabProg.CssClass = index == 0 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
+            btnTabAdm.CssClass = index == 1 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
+            btnTabFac.CssClass = index == 2 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
         }
 
-        // ================= LOAD DATA =================
-        void LoadAllData()
+        // --- BINDING ---
+        private void BindPrograms()
         {
-            gvPrograms.DataSource = DataAccessLayer.GetPrograms();
+            gvPrograms.DataSource = DataAccessLayer.GetDataTable("SELECT * FROM H_Programs ORDER BY ProgramID DESC");
             gvPrograms.DataBind();
-
-            gvAnnouncements.DataSource = DataAccessLayer.GetAnnouncements();
-            gvAnnouncements.DataBind();
         }
 
-        // ================= PROGRAMS =================
+        private void BindFaculty()
+        {
+            // Specifically selecting ImagePath and Education to avoid DataBinding errors
+            gvFaculty.DataSource = DataAccessLayer.GetDataTable("SELECT FacultyID, FullName as Name, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC");
+            gvFaculty.DataBind();
+        }
+
+        // --- ACTIONS ---
         protected void btnSaveProg_Click(object sender, EventArgs e)
         {
-            int? editId = ViewState["EditID"] != null
-                ? Convert.ToInt32(ViewState["EditID"])
-                : (int?)null;
+            string sql = string.IsNullOrEmpty(hfProgID.Value)
+                ? "INSERT INTO H_Programs (Title, Category, Duration, StartDate, Description) VALUES (@t, @c, @d, @s, @de)"
+                : "UPDATE H_Programs SET Title=@t, Category=@c, Duration=@d, StartDate=@s, Description=@de WHERE ProgramID=@id";
 
-            DataAccessLayer.SaveProgram(
-                txtProgTitle.Text,
-                txtProgDesc.Text,
-                ddlProgCat.SelectedValue,
-                editId
-            );
+            SqlParameter[] p = {
+                new SqlParameter("@t", txtProgTitle.Text.Trim()),
+                new SqlParameter("@c", ddlProgCat.SelectedValue),
+                new SqlParameter("@d", txtDuration.Text.Trim()),
+                new SqlParameter("@s", txtStartDate.Text.Trim()),
+                new SqlParameter("@de", txtProgDesc.Text.Trim()),
+                new SqlParameter("@id", (object)hfProgID.Value ?? DBNull.Value)
+            };
 
-            ResetProgForm();
-            LoadAllData();
-            ViewState["EditID"] = null;
+            DataAccessLayer.ExecuteNonQuery(sql, p);
+            ClearProgFields(); BindPrograms(); ShowAlert("Program Saved!");
         }
 
-        protected void gvPrograms_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        protected void btnRegFac_Click(object sender, EventArgs e)
         {
-            if (e.CommandName == "EditRow")
+            string img = HandleUpload(fuFacImage, "Faculty");
+            string sql = string.IsNullOrEmpty(hfFacID.Value)
+                ? "INSERT INTO H_Faculty (FullName, Department, Designation, Education, ImagePath) VALUES (@n, @d, @de, @e, @i)"
+                : "UPDATE H_Faculty SET FullName=@n, Department=@d, Designation=@de, Education=@e, ImagePath=ISNULL(NULLIF(@i,''), ImagePath) WHERE FacultyID=@id";
+
+            SqlParameter[] p = {
+                new SqlParameter("@n", txtFacName.Text.Trim()),
+                new SqlParameter("@d", ddlFacultyDept.SelectedValue),
+                new SqlParameter("@de", txtFacDesig.Text.Trim()),
+                new SqlParameter("@e", txtFacEdu.Text.Trim()),
+                new SqlParameter("@i", img),
+                new SqlParameter("@id", (object)hfFacID.Value ?? DBNull.Value)
+            };
+
+            DataAccessLayer.ExecuteNonQuery(sql, p);
+            ClearFacFields(); BindFaculty(); ShowAlert("Faculty Saved!");
+        }
+
+        protected void btnUpdateAdm_Click(object sender, EventArgs e)
+        {
+            string fee = HandleUpload(fuFee, "Admissions");
+            string form = HandleUpload(fuForm, "Admissions");
+            string pros = HandleUpload(fuProspectus, "Admissions");
+            DataAccessLayer.UpdateAdmissions(fee, form, pros);
+            ShowAlert("Admissions Updated!");
+        }
+
+        // --- GRIDVIEW LOGIC ---
+        protected void gvPrograms_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int id = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName == "EditProg")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
-
-                // (You can move this to DAL later if needed)
-                using (System.Data.SqlClient.SqlConnection con =
-                    new System.Data.SqlClient.SqlConnection(
-                        System.Configuration.ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString))
+                DataTable dt = DataAccessLayer.GetDataTable("SELECT * FROM H_Programs WHERE ProgramID=" + id);
+                if (dt.Rows.Count > 0)
                 {
-                    System.Data.SqlClient.SqlCommand cmd =
-                        new System.Data.SqlClient.SqlCommand(
-                            "SELECT * FROM Programs WHERE Id=@id", con);
-
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    con.Open();
-                    System.Data.SqlClient.SqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.Read())
-                    {
-                        txtProgTitle.Text = dr["Title"].ToString();
-                        txtProgDesc.Text = dr["Description"].ToString();
-                        ddlProgCat.SelectedValue = dr["Category"].ToString();
-
-                        btnSaveProg.Text = "Update Program";
-                        btnCancelProg.Visible = true;
-
-                        ViewState["EditID"] = id;
-                    }
+                    DataRow dr = dt.Rows[0];
+                    hfProgID.Value = dr["ProgramID"].ToString();
+                    txtProgTitle.Text = dr["Title"].ToString();
+                    ddlProgCat.SelectedValue = dr["Category"].ToString();
+                    txtDuration.Text = dr["Duration"].ToString();
+                    txtStartDate.Text = dr["StartDate"].ToString();
+                    txtProgDesc.Text = dr["Description"].ToString();
+                    btnSaveProg.Text = "UPDATE PROGRAM";
+                    btnCancelProg.Visible = true;
                 }
+            }
+            else if (e.CommandName == "DeleteProg")
+            {
+                DataAccessLayer.ExecuteNonQuery("DELETE FROM H_Programs WHERE ProgramID=" + id);
+                BindPrograms();
             }
         }
 
-        protected void gvPrograms_RowDeleting(object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
+        protected void gvFaculty_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int id = Convert.ToInt32(gvPrograms.DataKeys[e.RowIndex].Value);
-            DataAccessLayer.DeleteProgram(id);
-            LoadAllData();
+            int id = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName == "EditFac")
+            {
+                DataTable dt = DataAccessLayer.GetDataTable("SELECT * FROM H_Faculty WHERE FacultyID=" + id);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    hfFacID.Value = dr["FacultyID"].ToString();
+                    txtFacName.Text = dr["FullName"].ToString();
+                    ddlFacultyDept.SelectedValue = dr["Department"].ToString();
+                    txtFacDesig.Text = dr["Designation"].ToString();
+                    txtFacEdu.Text = dr["Education"].ToString();
+                    btnRegFac.Text = "UPDATE FACULTY";
+                    btnCancelFac.Visible = true;
+                }
+            }
+            else if (e.CommandName == "DeleteFac")
+            {
+                DataAccessLayer.ExecuteNonQuery("DELETE FROM H_Faculty WHERE FacultyID=" + id);
+                BindFaculty();
+            }
         }
 
-        // ================= ANNOUNCEMENTS =================
-        protected void btnSaveAnn_Click(object sender, EventArgs e)
+        // --- HELPERS ---
+        protected void btnCancelProg_Click(object sender, EventArgs e) { ClearProgFields(); }
+        protected void btnCancelFac_Click(object sender, EventArgs e) { ClearFacFields(); }
+
+        private void ClearProgFields() { hfProgID.Value = ""; txtProgTitle.Text = ""; txtProgDesc.Text = ""; txtDuration.Text = ""; txtStartDate.Text = ""; btnSaveProg.Text = "SAVE PROGRAM"; btnCancelProg.Visible = false; }
+        private void ClearFacFields() { hfFacID.Value = ""; txtFacName.Text = ""; txtFacDesig.Text = ""; txtFacEdu.Text = ""; btnRegFac.Text = "REGISTER FACULTY"; btnCancelFac.Visible = false; }
+
+        private string HandleUpload(FileUpload fu, string folder)
         {
-            DataAccessLayer.AddAnnouncement(
-                txtAnnTitle.Text,
-                txtAnnDetails.Text
-            );
-
-            txtAnnTitle.Text = "";
-            txtAnnDetails.Text = "";
-
-            LoadAllData();
+            if (!fu.HasFile) return "";
+            string folderPath = Server.MapPath("~/Uploads/" + folder + "/");
+            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+            string fileName = Guid.NewGuid().ToString().Substring(0, 8) + "_" + Path.GetFileName(fu.FileName);
+            fu.SaveAs(Path.Combine(folderPath, fileName));
+            return "~/Uploads/" + folder + "/" + fileName;
         }
 
-        protected void gvAnnouncements_RowDeleting(object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
-        {
-            int id = Convert.ToInt32(gvAnnouncements.DataKeys[e.RowIndex].Value);
-            DataAccessLayer.DeleteAnnouncement(id);
-            LoadAllData();
-        }
-
-        // ================= HELPERS =================
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            ResetProgForm();
-        }
-
-        void ResetProgForm()
-        {
-            txtProgTitle.Text = "";
-            txtProgDesc.Text = "";
-            btnSaveProg.Text = "Save Program";
-            btnCancelProg.Visible = false;
-        }
+        private void ShowAlert(string msg) { ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('{msg}');", true); }
+        protected void btnLogout_Click(object sender, EventArgs e) { Session.Abandon(); Response.Redirect("AdminLogin.aspx"); }
     }
 }

@@ -10,15 +10,15 @@
 namespace HIMACollegeWebsite {
     
     
-    public partial class AnnouncementsPage {
+    public partial class DAEPrograms {
         
         /// <summary>
-        /// rpAllAnnouncements control.
+        /// rpDAEPrograms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpAllAnnouncements;
+        protected global::System.Web.UI.WebControls.Repeater rpDAEPrograms;
     }
 }

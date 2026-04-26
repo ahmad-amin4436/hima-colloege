@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HIMA College of Engineering Technology</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
     <style>
         html, body {
@@ -18,33 +18,26 @@
             overflow-x: hidden;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
-
         form {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-
-        /* Logo Styling */
         .navbar-logo {
-            height: 60px; /* Adjusted for visibility */
+            height: 60px;
             width: auto;
             transition: transform 0.3s ease;
         }
-        
         .navbar-logo:hover {
             transform: scale(1.05);
         }
-
         .nav-link {
             transition: opacity 0.2s ease;
         }
-
         .dropdown-menu {
             transition: all 0.3s ease;
             margin-top: 15px !important;
         }
-
         .full-width-section {
             width: 100%;
         }
@@ -52,153 +45,155 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
-<form runat="server" id="mainForm">
-
-<div class="bg-dark text-white py-2 full-width-section border-bottom border-secondary border-opacity-25">
-    <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
-        <div class="small fw-semibold opacity-75">
-            HIMA College of Engineering Technology
-        </div>
-        <div class="small">
-            <a href="#" class="text-white me-3 opacity-75"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-3 opacity-75"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="text-white opacity-75"><i class="fab fa-youtube"></i></a>
-        </div>
-    </div>
-</div>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-light sticky-top py-2 full-width-section">
-    <div class="container-fluid px-lg-5">
-
-        <a class="navbar-brand d-flex align-items-center" href="/Default.aspx">
-            <img runat="server" src="~/Assets/Logo_HIMA.png" alt="HIMA" class="navbar-logo me-2" />
-        </a>
-
-        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navMenu">
-           <ul class="navbar-nav mx-auto">
-    <li class="nav-item">
-        <a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75" href="/Default.aspx">Home</a>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" 
-           href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            About Us
-        </a>
-        <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" aria-labelledby="aboutDropdown" style="min-width: 220px;">
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/About.aspx#mission-vision"><span class="text-success me-2">01</span> Mission & Vision</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/About.aspx#management"><span class="text-success me-2">02</span> Management</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/About.aspx#history"><span class="text-success me-2">03</span> History</a></li>
-            <li><hr class="dropdown-divider opacity-25"></li>
-            <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/About.aspx">View Full Page</a></li>
-        </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" 
-           href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Programs
-        </a>
-        <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" aria-labelledby="programsDropdown" style="min-width: 220px;">
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Programs.aspx#bs-programs"><span class="text-success me-2">01</span> BS Programs</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Programs.aspx#it-programs"><span class="text-success me-2">02</span> IT & Tech</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Programs.aspx#vocational-hub"><span class="text-success me-2">03</span> Vocational Hub</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Programs.aspx#short-courses"><span class="text-success me-2">04</span> Short Courses</a></li>
-            <li><hr class="dropdown-divider opacity-25"></li>
-            <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/Programs.aspx">All Programs</a></li>
-        </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" 
-           href="#" id="admissionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Admissions
-        </a>
-        <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" aria-labelledby="admissionDropdown" style="min-width: 240px;">
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#process"><span class="text-success me-2">01</span> How to Apply</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#criteria"><span class="text-success me-2">02</span> Eligibility</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#downloads"><span class="text-success me-2">03</span> Download Forms</a></li>
-            <li><hr class="dropdown-divider opacity-25"></li>
-            <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/Admissions.aspx">Admissions Portal</a></li>
-        </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" 
-           href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Faculties
-        </a>
-        <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" aria-labelledby="facultyDropdown" style="min-width: 260px;">
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#civil"><span class="text-success me-2">01</span> Dept. of Civil</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#electrical"><span class="text-success me-2">02</span> Dept. of Electrical</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#cit"><span class="text-success me-2">03</span> Dept. of CIT</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#hvac"><span class="text-success me-2">04</span> Dept. of HVAC&R</a></li>
-            <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#mechanical"><span class="text-success me-2">05</span> Dept. of Mechanical</a></li>
-            <li><hr class="dropdown-divider opacity-25"></li>
-            <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/Faculty.aspx">View All Faculties</a></li>
-        </ul>
-    </li>
-
-    <li class="nav-item"><a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75" href="/Pages/Contact.aspx">Contact Us</a></li>
-</ul>
-
-            <div class="d-flex align-items-center">
-                <a href="/Pages/Admin.aspx" class="btn btn-dark btn-sm rounded-0 px-4 py-2 text-uppercase fw-bold small shadow-sm">Admin</a>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<main class="flex-fill full-width-section">
-    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-</main>
-
-<footer class="bg-dark text-white full-width-section mt-auto py-5">
-    <div class="container-fluid px-lg-5">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="mb-4">
-                    <img src="/Content/Images/Logo_HIMA.png" alt="HIMA Logo" style="height: 50px; filter: brightness(0) invert(1);" />
+    <form runat="server" id="mainForm">
+        <div class="bg-dark text-white py-2 full-width-section border-bottom border-secondary border-opacity-25">
+            <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
+                <div class="small fw-semibold opacity-75">
+                    HIMA College of Engineering Technology
                 </div>
-                <p class="text-white-50 small lh-lg">
-                    A leading institute in Lahore providing quality engineering and technology education[cite: 1, 2, 3, 5].
-                </p>
-            </div>
-
-            <div class="col-md-2 offset-md-1">
-                <h6 class="text-white fw-bold text-uppercase mb-4 small">Quick Links</h6>
-                <ul class="list-unstyled small">
-                    <li class="mb-2"><a class="text-white-50 text-decoration-none" href="/Default.aspx">Home</a></li>
-                    <li class="mb-2"><a class="text-white-50 text-decoration-none" href="/Pages/About.aspx">About Us</a></li>
-                    <li class="mb-2"><a class="text-white-50 text-decoration-none" href="/Pages/Programs.aspx">Programs</a></li>
-                    <li class="mb-2"><a class="text-white-50 text-decoration-none" href="/Pages/Admissions.aspx">Admissions</a></li>
-                    <li class="mb-2"><a class="text-white-50 text-decoration-none" href="/Pages/Faculty.aspx">Faculties</a></li>
-                    <li class="mb-2"><a class="text-white-50 text-decoration-none" href="/Pages/Contact.aspx">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-4 offset-md-1">
-                <h6 class="text-white fw-bold text-uppercase mb-4 small">Contact Us</h6>
-                <p class="text-white-50 small mb-2"><i class="fas fa-map-marker-alt text-success me-2"></i> Sabzazar, Lahore [cite: 5]</p>
-                <p class="text-white-50 small mb-2"><i class="fas fa-phone text-success me-2"></i> +92 300 0000000</p>
-                <p class="text-white-50 small mb-0"><i class="fas fa-envelope text-success me-2"></i> info@himacollege.edu</p>
+                <div class="small">
+   
+   <a href="https://www.facebook.com/arainaafzal456/" 
+   target="_blank" 
+   class="me-3" 
+   style="text-decoration: none; opacity: 0.75; transition: opacity 0.3s;"
+   onmouseover="this.querySelector('i').style.color='#ffc107'; this.style.opacity='1'" 
+   onmouseout="this.querySelector('i').style.color='white'; this.style.opacity='0.75'">
+   
+   <i class="fab fa-facebook-f text-white" style="color: white; transition: color 0.3s;"></i>
+</a>
+</div>
             </div>
         </div>
-    </div>
-</footer>
 
-<div class="bg-black text-center text-white-50 py-3 small full-width-section border-top border-secondary border-opacity-10">
-    © 2026 HIMA College of Engineering Technology | All Rights Reserved
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-light sticky-top py-2 full-width-section">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand d-flex align-items-center" href="/Default.aspx">
+                    <img runat="server" src="~/Assets/Logo_HIMA.png" alt="HIMA" class="navbar-logo me-2" />
+                </a>
+
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75" href="/Default.aspx">Home</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="aboutDropdown" data-bs-toggle="dropdown">About Us</a>
+                            <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 250px;">
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/History.aspx"><span class="text-success me-2">01</span> Our History</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Accre.aspx"><span class="text-success me-2">02</span> Accreditations</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/ManagingBodies.aspx"><span class="text-success me-2">03</span> Managing Bodies</a></li>
+                                <li><hr class="dropdown-divider opacity-25"></li>
+                                <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/About.aspx">Mission & Vision</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="programsDropdown" data-bs-toggle="dropdown">Programs</a>
+                            <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2">
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/BSPrograms.aspx"><span class="text-success me-2">01</span> BS Programs</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/DAEPrograms.aspx"><span class="text-success me-2">02</span> DAE Programs</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Vocational.aspx"><span class="text-success me-2">03</span> Vocational Hub</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/ShortCourses.aspx"><span class="text-success me-2">04</span> Short Courses</a></li>
+                                <li><hr class="dropdown-divider opacity-25"></li>
+                                <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/BSPrograms.aspx">View All</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="admissionDropdown" data-bs-toggle="dropdown">Admissions</a>
+                            <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 240px;">
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#fee-section"><span class="text-success me-2">01</span> Fee Structure</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#form-section"><span class="text-success me-2">02</span> Admission Form</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#prospectus-section"><span class="text-success me-2">03</span> Prospectus</a></li>
+                                <li><hr class="dropdown-divider opacity-25"></li>
+                                <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/Admissions.aspx">Full Portal</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="studentHubDropdown" data-bs-toggle="dropdown">Student Hub</a>
+                            <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 250px;">
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/StudentHub.aspx#life-campus"><span class="text-success me-2">01</span> Life in Campus</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/StudentHub.aspx#facilities"><span class="text-success me-2">02</span> Modern Facilities</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/StudentHub.aspx#activities"><span class="text-success me-2">03</span> Campus Activities</a></li>
+                                <li><hr class="dropdown-divider opacity-25"></li>
+                                <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/StudentHub.aspx">View All Hub</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="facultyDropdown" data-bs-toggle="dropdown">Faculty</a>
+                            <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 250px;">
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#civil"><span class="text-success me-2">01</span> Civil Dept</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#electrical"><span class="text-success me-2">02</span> Electrical Dept</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#cit"><span class="text-success me-2">03</span> CIT Dept</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#hvac"><span class="text-success me-2">04</span> HVAC&R Dept</a></li>
+                                <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#mechanical"><span class="text-success me-2">05</span> Mechanical Dept</a></li>
+                                <li><hr class="dropdown-divider opacity-25"></li>
+                                <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/Faculty.aspx">View All Faculty</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75" href="/Pages/Contact.aspx">Contact Us</a></li>
+                    </ul>
+
+                    <div class="d-flex align-items-center">
+                        <a href="/Pages/AdminLogin.aspx" class="btn btn-dark btn-sm rounded-0 px-4 py-2 text-uppercase fw-bold small shadow-sm">Admin</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-fill full-width-section">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+
+        <footer class="bg-dark text-white full-width-section mt-auto py-5">
+            <div class="container-fluid px-lg-5">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="mb-4">
+                            <img runat="server" src="~/Assets/Logo_HIMA.png" alt="HIMA Logo" style="height: 50px; filter: brightness(0) invert(1);" />
+                        </div>
+                        <p class="text-white-50 small lh-lg">
+                           With a steadfast focus on quality education, we strive to produce competent and responsible graduates as per industrial needs.
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 offset-md-1">
+    <h6 class="text-white fw-bold text-uppercase mb-4 small">Quick Links</h6>
+    <ul class="list-unstyled small">
+       <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Default.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">Home</a></li>
+        <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Pages/History.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">About Us</a></li>
+        <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Pages/BSPrograms.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">Programs</a></li>
+        <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Pages/Admissions.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">Admissions</a></li>
+        <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Pages/StudentHub.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">Student Hub</a></li>
+        <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Pages/Faculty.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">Faculty</a></li>
+        <li class="mb-2"><a class="link-light text-white-50 text-decoration-none" href="/Pages/Contact.aspx" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color=''">Contact Us</a></li>
+    </ul>
 </div>
 
-</form>
+                    <div class="col-md-4 offset-md-1">
+                        <h6 class="text-white fw-bold text-uppercase mb-4 small">Contact Us</h6>
+                        <p class="text-white-50 small mb-2"><i class="fas fa-map-marker-alt text-success me-2"></i>Main Boulevard, Sabzazar, scheme mor Multan Rd, Lahore, 54572, Pakistan</p>
+                        <p class="text-white-50 small mb-2"><i class="fas fa-phone text-success me-2"></i>+92 42 35962424</p>
+                        <p class="text-white-50 small mb-0"><i class="fas fa-envelope text-success me-2"></i> info@himacollege.edu</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="bg-black text-center text-white-50 py-3 small full-width-section border-top border-secondary border-opacity-10">
+            © 2026 HIMA College of Engineering Technology | All Rights Reserved
+        </div>
+    </form>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,135 +1,111 @@
-﻿<%@ Page Title="Admissions" Language="C#" MasterPageFile="~/Site.Master" 
-    AutoEventWireup="true" CodeBehind="Admissions.aspx.cs" 
-    Inherits="HIMACollegeWebsite.Admissions" %>
+﻿<%@ Page Title="Admissions & Downloads" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Admissions.aspx.cs" Inherits="HIMACollegeWebsite.Admissions" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
 <div class="container-fluid p-0">
     <div class="position-relative text-white text-center d-flex align-items-center justify-content-center vh-100">
-        <div class="position-absolute w-100 h-100">
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80"
-                 class="w-100 h-100 object-fit-cover" alt="HIMA Campus" />
+        <div class="position-absolute top-0 start-0 w-100 h-100">
+            <img src="/Assets/carousel1.png" 
+                 class="w-100 h-100" 
+                 style="object-fit: cover;" 
+                 alt="HIMA Campus" />
+            
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
         </div>
         
-        <div class="container position-relative">
+        <div class="container position-relative" style="z-index: 1;">
             <h1 class="display-3 fw-bold text-uppercase mb-3">Admissions</h1>
             <p class="lead col-md-8 mx-auto fs-4 opacity-75">
-               Start your journey toward becoming a "Job Provider, Not a Job Seeker."
+               Your journey toward engineering excellence begins here. Join a community built on innovation and industrial leadership.
             </p>
         </div>
     </div>
 </div>
 
-<section id="process" class="py-5 bg-white">
     <div class="container py-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2">1. Admission Process</h2>
-            <p class="text-muted">A simple 3-step guide to securing your future at HIMA.</p>
+            <h2 class="fw-bold text-uppercase d-inline-block pb-2 position-relative">
+                Admission <span class="text-success">Resources</span>
+            </h2>
+            <div class="bg-success mx-auto mb-3" style="height: 4px; width: 80px;"></div>
+            <p class="text-muted">Follow the steps below to complete your enrollment process.</p>
         </div>
-        
-        <div class="row g-4 text-center">
-            <div class="col-md-4">
-                <div class="p-4 shadow-sm border h-100">
-                    <div class="display-5 text-success mb-3"><i class="fas fa-file-signature"></i></div>
-                    <h5 class="fw-bold">Step 1: Registration</h5>
-                    <p class="small text-muted">Visit our campus or download the admission form below to begin your application.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 shadow-sm border h-100">
-                    <div class="display-5 text-success mb-3"><i class="fas fa-user-check"></i></div>
-                    <h5 class="fw-bold">Step 2: Interview</h5>
-                    <p class="small text-muted">Successful candidates will be called for a short technical interview and counseling session.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 shadow-sm border h-100">
-                    <div class="display-5 text-success mb-3"><i class="fas fa-university"></i></div>
-                    <h5 class="fw-bold">Step 3: Enrollment</h5>
-                    <p class="small text-muted">Submit your original documents and dues to confirm your seat in the desired department.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section id="criteria" class="py-5 bg-light">
-    <div class="container py-5">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-                <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2">2. Admission Criteria</h2>
-                <div class="accordion border-0" id="criteriaAccordion">
-                    <div class="accordion-item mb-3 shadow-sm border-0">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                DAE / Engineering Programs
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#criteriaAccordion">
-                            <div class="accordion-body text-muted">
-                                Candidates must have passed Matriculation (Science) with at least 45% marks. Diploma holders (DAE) are eligible for BS program entry.
-                            </div>
-                        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                
+                <div id="fee-section" class="mb-5">
+                    <div class="text-start mb-3">
+                        <h3 class="fw-bold text-dark text-uppercase border-start border-danger border-4 ps-3">01. Fee Structure</h3>
+                        <p class="text-muted small ms-4">View the latest financial breakdown for the upcoming academic year.</p>
                     </div>
-                    <div class="accordion-item mb-3 shadow-sm border-0">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                Required Documents
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#criteriaAccordion">
-                            <div class="accordion-body text-muted">
-                                <ul class="small">
-                                    <li>Matric / Inter Result Card (4 Copies)</li>
-                                    <li>CNIC or B-Form (4 Copies)</li>
-                                    <li>Father/Guardian CNIC (2 Copies)</li>
-                                    <li>6 Passport Size Photographs (Blue Background)</li>
-                                </ul>
+                    
+                    <div class="card shadow-sm border-0 border-start border-danger border-5 rounded-0">
+                        <div class="card-body p-4 d-md-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-pdf-fill text-danger fs-1 me-4"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-1 fs-5">Fee Schedule 2026-27</h4>
+                                    <p class="text-muted mb-0 small">Official Tuition & Lab Charges</p>
+                                </div>
+                            </div>
+                            <div class="mt-3 mt-md-0 d-flex gap-2">
+                                <asp:HyperLink ID="lnkViewFee" runat="server" Target="_blank" CssClass="btn btn-outline-dark px-4 rounded-0 fw-bold btn-sm">VIEW</asp:HyperLink>
+                                <asp:HyperLink ID="lnkDownFee" runat="server" CssClass="btn btn-danger px-4 rounded-0 fw-bold btn-sm">DOWNLOAD</asp:HyperLink>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="bg-dark p-5 text-white shadow-lg">
-                    <h4 class="fw-bold text-success text-uppercase mb-3">Our Vision</h4>
-                    <p class="opacity-75 italic">"To produce entrepreneurs—the job providers, not the job seekers."</p>
-                    <hr class="border-secondary">
-                    <p class="small mb-0">HIMA College is committed to equipping students with advanced technological knowledge and practical training for effective productivity.</p>
+                <br />
+
+                <div id="form-section" class="mb-5">
+                    <div class="text-start mb-3">
+                        <h3 class="fw-bold text-dark text-uppercase border-start border-primary border-4 ps-3">02. Admission Form</h3>
+                        <p class="text-muted small ms-4">Download and print the registration form for manual submission.</p>
+                    </div>
+                    <br />
+
+                    <div class="card shadow-sm border-0 border-start border-primary border-5 rounded-0">
+                        <div class="card-body p-4 d-md-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-text-fill text-primary fs-1 me-4"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-1 fs-5">Registration Form</h4>
+                                    <p class="text-muted mb-0 small">Official Enrollment Document</p>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="mt-3 mt-md-0 d-flex gap-2">
+                                <asp:HyperLink ID="lnkViewForm" runat="server" Target="_blank" CssClass="btn btn-outline-dark px-4 rounded-0 fw-bold btn-sm">VIEW</asp:HyperLink>
+                                <asp:HyperLink ID="lnkDownForm" runat="server" CssClass="btn btn-primary px-4 rounded-0 fw-bold btn-sm">DOWNLOAD</asp:HyperLink>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div id="prospectus-section" class="mb-5">
+                    <div class="text-start mb-3">
+                        <h3 class="fw-bold text-dark text-uppercase border-start border-success border-4 ps-3">03. College Prospectus</h3>
+                        <p class="text-muted small ms-4">Everything you need to know about our departments and campus life.</p>
+                    </div>
+
+                    <div class="card shadow-sm border-0 border-start border-success border-5 rounded-0">
+                        <div class="card-body p-4 d-md-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-book-fill text-success fs-1 me-4"></i>
+                                <div>
+                                    <h4 class="fw-bold mb-1 fs-5">Full Prospectus 2026</h4>
+                                    <p class="text-muted mb-0 small">Campus Guide & Course Details</p>
+                                </div>
+                            </div>
+                            <div class="mt-3 mt-md-0 d-flex gap-2">
+                                <asp:HyperLink ID="lnkViewPros" runat="server" Target="_blank" CssClass="btn btn-outline-dark px-4 rounded-0 fw-bold btn-sm">VIEW</asp:HyperLink>
+                                <asp:HyperLink ID="lnkDownPros" runat="server" CssClass="btn btn-success px-4 rounded-0 fw-bold btn-sm">DOWNLOAD</asp:HyperLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</section>
-
-<section id="downloads" class="py-5 bg-white">
-    <div class="container py-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2">3. Prospectus and Forms</h2>
-            <p class="text-muted">Get the necessary forms and prospectus here.</p>
-        </div>
-
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-5 col-lg-4">
-                <div class="card text-center border-0 shadow-sm p-4 h-100">
-                    <div class="mb-3 text-danger"><i class="fas fa-file-pdf fa-3x"></i></div>
-                    <h5 class="fw-bold text-uppercase">Prospectus 2026</h5>
-                    <p class="small text-muted">Detailed info about our curriculum, labs, and faculty.</p>
-                    <a href="/Assets/Prospectus_2026.pdf" download class="btn btn-dark rounded-0 w-100 fw-bold">DOWNLOAD PDF</a>
-                </div>
-            </div>
-
-            <div class="col-md-5 col-lg-4">
-                <div class="card text-center border-success border shadow-sm p-4 h-100">
-                    <div class="mb-3 text-success"><i class="fas fa-file-download fa-3x"></i></div>
-                    <h5 class="fw-bold text-uppercase">Admission Form</h5>
-                    <p class="small text-muted">Download and fill manually to submit at the campus office.</p>
-                    <a href="/Assets/Admission_Form_HIMA.pdf" download class="btn btn-success rounded-0 w-100 fw-bold">DOWNLOAD FORM</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 </asp:Content>

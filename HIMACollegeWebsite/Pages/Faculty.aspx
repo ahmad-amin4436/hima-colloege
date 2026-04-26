@@ -7,15 +7,13 @@
 <div class="container-fluid p-0">
     <div class="position-relative text-white text-center d-flex align-items-center justify-content-center vh-100">
         <div class="position-absolute w-100 h-100">
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80"
-                 class="w-100 h-100 object-fit-cover" alt="HIMA Campus" />
+            <img src="/Assets/Carousel1.png" class="w-100 h-100 object-fit-cover" alt="HIMA Campus" />
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
         </div>
-        
         <div class="container position-relative">
             <h1 class="display-3 fw-bold text-uppercase mb-3">Our Faculty</h1>
             <p class="lead col-md-8 mx-auto fs-4 opacity-75">
-                Legacy of service, excellence in engineering, and a focus on industrial needs.
+                A community of mentors committed to fostering technical innovation and academic excellence in every student.
             </p>
         </div>
     </div>
@@ -32,9 +30,14 @@
             <asp:Repeater ID="rpCivil" runat="server">
                 <ItemTemplate>
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3">
+                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 transition-all"
+                             style="transition: all 0.3s ease; cursor: default;"
+                             onmouseover="this.style.transform='translateY(-8px)'; this.style.borderTopWidth='8px'; this.classList.replace('shadow-sm', 'shadow'); this.querySelector('img').style.transform='scale(1.1)';" 
+                             onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.classList.replace('shadow', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
-                                <img src='<%# Eval("ImagePath") %>' class="me-3 bg-light object-fit-cover" style="width:80px; height:100px;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
+                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
@@ -60,9 +63,14 @@
             <asp:Repeater ID="rpElectrical" runat="server">
                 <ItemTemplate>
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 bg-white">
+                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 bg-white transition-all"
+                             style="transition: all 0.3s ease;"
+                             onmouseover="this.style.transform='translateY(-8px)'; this.style.borderTopWidth='8px'; this.classList.replace('shadow-sm', 'shadow'); this.querySelector('img').style.transform='scale(1.1)';" 
+                             onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.classList.replace('shadow', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
-                                <img src='<%# Eval("ImagePath") %>' class="me-3 bg-light object-fit-cover" style="width:80px; height:100px;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
+                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
@@ -88,9 +96,14 @@
             <asp:Repeater ID="rpCIT" runat="server">
                 <ItemTemplate>
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3">
+                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 transition-all"
+                             style="transition: all 0.3s ease;"
+                             onmouseover="this.style.transform='translateY(-8px)'; this.style.borderTopWidth='8px'; this.querySelector('img').style.transform='scale(1.1)';" 
+                             onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
-                                <img src='<%# Eval("ImagePath") %>' class="me-3 bg-light object-fit-cover" style="width:80px; height:100px;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
+                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
@@ -116,9 +129,14 @@
             <asp:Repeater ID="rpHVAC" runat="server">
                 <ItemTemplate>
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 bg-white">
+                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 bg-white transition-all"
+                             style="transition: all 0.3s ease;"
+                             onmouseover="this.style.transform='translateY(-8px)'; this.style.borderTopWidth='8px'; this.querySelector('img').style.transform='scale(1.1)';" 
+                             onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
-                                <img src='<%# Eval("ImagePath") %>' class="me-3 bg-light object-fit-cover" style="width:80px; height:100px;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
+                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
@@ -136,7 +154,7 @@
 <section id="mechanical" class="py-5 bg-white">
     <div class="container py-5">
         <div class="mb-5 position-relative">
-            <h1 class="display-1 fw-bold text-secondary opacity-10 mb-0 lh-1">02</h1>
+            <h1 class="display-1 fw-bold text-secondary opacity-10 mb-0 lh-1">05</h1>
             <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2 position-relative mt-n5 me-3">Department of Mechanical</h2>
         </div>
 
@@ -144,9 +162,14 @@
             <asp:Repeater ID="rpMechanical" runat="server">
                 <ItemTemplate>
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3">
+                        <div class="card h-100 shadow-sm border-0 rounded-0 border-top border-success border-4 p-3 transition-all"
+                             style="transition: all 0.3s ease;"
+                             onmouseover="this.style.transform='translateY(-8px)'; this.style.borderTopWidth='8px'; this.querySelector('img').style.transform='scale(1.1)';" 
+                             onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
-                                <img src='<%# Eval("ImagePath") %>' class="me-3 bg-light object-fit-cover" style="width:80px; height:100px;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
+                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>

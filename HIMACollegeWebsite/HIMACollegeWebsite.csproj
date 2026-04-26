@@ -105,10 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\carousel2.jpeg" />
+    <Content Include="Assets\carousel3.jpeg" />
     <Content Include="Assets\Logo_HIMA.png" />
-    <Content Include="Pages\About.aspx" />
+    <Content Include="Pages\Accre.aspx" />
     <Content Include="Pages\Administration.aspx" />
     <Content Include="Pages\Admissions.aspx" />
+    <Content Include="Pages\BSPrograms.aspx" />
+    <Content Include="Assets\carousel1.png" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\AdminDashboard.aspx" />
     <Content Include="Pages\AdminLogin.aspx" />
@@ -116,10 +120,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Pages\AnnouncementsPage.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Pages\DAEPrograms.aspx" />
     <Content Include="Pages\Faculty.aspx" />
+    <Content Include="Pages\History.aspx" />
+    <Content Include="Pages\ManagingBodies.aspx" />
+    <Content Include="Pages\ShortCourses.aspx" />
     <Content Include="Pages\StudentHub.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -133,7 +140,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Pages\Programs.aspx" />
+    <Content Include="Pages\Vocational.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -171,6 +178,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Accre.aspx.cs">
+      <DependentUpon>Accre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Accre.aspx.designer.cs">
+      <DependentUpon>Accre.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Administration.aspx.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,14 +200,14 @@
       <DependentUpon>Admissions.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Pages\About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Pages\BSPrograms.aspx.cs">
+      <DependentUpon>BSPrograms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Pages\BSPrograms.aspx.designer.cs">
+      <DependentUpon>BSPrograms.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Pages\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,13 +230,6 @@
       <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DataAccessLayer.cs" />
-    <Compile Include="Pages\AnnouncementsPage.aspx.cs">
-      <DependentUpon>AnnouncementsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AnnouncementsPage.aspx.designer.cs">
-      <DependentUpon>AnnouncementsPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -230,12 +237,40 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DAEPrograms.aspx.cs">
+      <DependentUpon>DAEPrograms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DAEPrograms.aspx.designer.cs">
+      <DependentUpon>DAEPrograms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Faculty.aspx.cs">
       <DependentUpon>Faculty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Faculty.aspx.designer.cs">
       <DependentUpon>Faculty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ManagingBodies.aspx.cs">
+      <DependentUpon>ManagingBodies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ManagingBodies.aspx.designer.cs">
+      <DependentUpon>ManagingBodies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShortCourses.aspx.cs">
+      <DependentUpon>ShortCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ShortCourses.aspx.designer.cs">
+      <DependentUpon>ShortCourses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\StudentHub.aspx.cs">
       <DependentUpon>StudentHub.aspx</DependentUpon>
@@ -247,12 +282,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Programs.aspx.cs">
-      <DependentUpon>Programs.aspx</DependentUpon>
+    <Compile Include="Pages\Vocational.aspx.cs">
+      <DependentUpon>Vocational.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Programs.aspx.designer.cs">
-      <DependentUpon>Programs.aspx</DependentUpon>
+    <Compile Include="Pages\Vocational.aspx.designer.cs">
+      <DependentUpon>Vocational.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

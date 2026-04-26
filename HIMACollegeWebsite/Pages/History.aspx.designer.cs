@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HIMACollegeWebsite
+namespace HIMACollegeWebsite.Pages
 {
 
 
-    public partial class About
+    public partial class History
     {
     }
 }
