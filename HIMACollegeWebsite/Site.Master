@@ -45,7 +45,8 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <form runat="server" id="mainForm">
+    <form runat="server" id="mainForm" enctype="multipart/form-data">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
         <div class="bg-dark text-white py-2 full-width-section border-bottom border-secondary border-opacity-25">
             <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
                 <div class="small fw-semibold opacity-75">
@@ -89,7 +90,6 @@
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Accre.aspx"><span class="text-success me-2">02</span> Accreditations</a></li>
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/ManagingBodies.aspx"><span class="text-success me-2">03</span> Managing Bodies</a></li>
                                 <li><hr class="dropdown-divider opacity-25"></li>
-                                <li><a class="dropdown-item py-2 small fw-bold text-uppercase text-success" href="/Pages/About.aspx">Mission & Vision</a></li>
                             </ul>
                         </li>
 

@@ -10,11 +10,23 @@ namespace HIMACollegeWebsite
 {
     public partial class AdminDashboard : System.Web.UI.Page
     {
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            if (ScriptManager.GetCurrent(this) != null)
+            {
+                // This tells the page: "When these buttons are clicked, send the files!"
+                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnUpdateAdm);
+                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnRegFac);
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["admin"] == null) Response.Redirect("AdminLogin.aspx");
             if (!IsPostBack) { BindPrograms(); BindFaculty(); }
         }
+       
 
         // --- NAVIGATION ---
         protected void SwitchView(object sender, EventArgs e)
@@ -151,10 +163,22 @@ namespace HIMACollegeWebsite
         private string HandleUpload(FileUpload fu, string folder)
         {
             if (!fu.HasFile) return "";
+
+            // This converts ~/Uploads/Admissions/ to C:\Users\YourName\Documents\Project\Uploads\Admissions\
             string folderPath = Server.MapPath("~/Uploads/" + folder + "/");
-            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+
+            // This checks if the folder exists, and creates it if missing
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
             string fileName = Guid.NewGuid().ToString().Substring(0, 8) + "_" + Path.GetFileName(fu.FileName);
-            fu.SaveAs(Path.Combine(folderPath, fileName));
+            string fullPath = Path.Combine(folderPath, fileName);
+
+            fu.SaveAs(fullPath);
+
+            // Return the virtual path to save in the Database
             return "~/Uploads/" + folder + "/" + fileName;
         }
 
