@@ -53,7 +53,9 @@
         <div class="col-lg-6">
             <h6 class="text-success fw-bold text-uppercase mb-3">About HIMA</h6>
             <h2 class="display-5 fw-bold mb-4">A Legacy of Technical Education</h2>
-            <p class="text-muted mb-4 lead">Founded with the mission to create "Job Providers, not Job Seekers," HIMA College stands as a premier institution for engineering and vocational training in Lahore.</p>
+            <p class="text-muted mb-4 lead">Since 1962, our institute has empowered over 600 students through pioneer technical and vocational training within a modern, purpose-built campus.
+Now evolved into HIMA College of Engineering Technology, we offer GCUF-affiliated Bachelor’s degrees designed to meet modern industrial standards.
+Our mission is to produce industry-ready graduates and entrepreneurs through hands-on excellence and NTC-accredited academic frameworks.</p>
             <a href="/Pages/History.aspx" class="btn btn-dark rounded-0 px-4 py-2 fw-bold text-uppercase small shadow-sm">
                 Our Full Story <i class="fas fa-arrow-right ms-2"></i>
             </a>
