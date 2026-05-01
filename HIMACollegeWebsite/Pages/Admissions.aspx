@@ -15,7 +15,7 @@
         <div class="container position-relative" style="z-index: 1;">
             <h1 class="display-3 fw-bold text-uppercase mb-3">Admissions</h1>
             <p class="lead col-md-8 mx-auto fs-4 opacity-75">
-               Your journey toward engineering excellence begins here. Join a community built on innovation and industrial leadership.
+             Innovation, leadership, and your journey start here.
             </p>
         </div>
     </div>

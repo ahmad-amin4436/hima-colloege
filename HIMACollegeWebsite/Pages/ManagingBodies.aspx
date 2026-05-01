@@ -11,7 +11,7 @@
         <div class="container position-relative">
             <h1 class="display-3 fw-bold text-uppercase mb-3">Managing Bodies</h1>
             <p class="lead col-md-8 mx-auto fs-4 opacity-75">
-                nsuring academic quality and industrial relevance through rigorous institutional governance and professional oversight.
+                Academic quality through rigorous governance and professional oversight.
             </p>
         </div>
     </div>

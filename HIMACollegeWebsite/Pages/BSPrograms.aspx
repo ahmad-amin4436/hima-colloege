@@ -10,7 +10,7 @@
             </div>
             <div class="container position-relative">
                 <h1 class="display-3 fw-bold text-uppercase mb-3">BS Programs</h1>
-                <p class="lead col-md-8 mx-auto fs-4 opacity-75">Rigorous academic programs designed to bridge the gap between technical theory and industrial mastery.</p>
+                <p class="lead col-md-8 mx-auto fs-4 opacity-75">Bridging theory and industrial mastery.</p>
    
             </div>
         </div>

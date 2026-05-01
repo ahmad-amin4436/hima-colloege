@@ -13,7 +13,7 @@
         <div class="container position-relative">
             <h1 class="display-3 fw-bold text-uppercase mb-3">Our Faculty</h1>
             <p class="lead col-md-8 mx-auto fs-4 opacity-75">
-                A community of mentors committed to fostering technical innovation and academic excellence in every student.
+              Mentors fostering innovation and academic success.
             </p>
         </div>
     </div>

@@ -12,10 +12,6 @@
 
     <div class="container position-relative" style="z-index: 2;">
         <h2 class="display-3 fw-bold text-uppercase">Contact Us</h2>
-        <p class="lead col-md-8 mx-auto fs-4">
-            With a steadfast focus on quality education, we strive to produce competent 
-            and responsible graduates as per industrial needs.
-        </p>
     </div>
 </div>
 

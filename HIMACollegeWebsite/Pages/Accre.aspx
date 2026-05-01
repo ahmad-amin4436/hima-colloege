@@ -12,7 +12,7 @@
         <div class="container position-relative">
             <h1 class="display-3 fw-bold text-uppercase mb-3">Accreditations</h1>
             <p class="lead col-md-8 mx-auto fs-4 opacity-75">
-                Defining engineering quality through world-class certifications and continuous academic innovation.
+               Certified quality and continuous academic innovation.
             </p>
         </div>
     </div>

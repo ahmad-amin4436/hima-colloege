@@ -22,7 +22,7 @@
         <h2 class="display-4 fw-bold text-uppercase">Administration</h2>
 
         <p class="lead col-md-8 mx-auto">
-           Leading the way in engineering education through transparent governance and innovative management.
+          Transparent governance and innovative management.
         </p>
 
     </div>
