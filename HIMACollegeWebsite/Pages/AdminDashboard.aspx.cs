@@ -15,22 +15,21 @@ namespace HIMACollegeWebsite
             base.OnInit(e);
             if (ScriptManager.GetCurrent(this) != null)
             {
-                // This tells the page: "When these buttons are clicked, send the files!"
                 ScriptManager.GetCurrent(this).RegisterPostBackControl(btnUpdateAdm);
                 ScriptManager.GetCurrent(this).RegisterPostBackControl(btnRegFac);
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (Session["admin"] == null) Response.Redirect("AdminLogin.aspx");
             if (!IsPostBack) { BindPrograms(); BindFaculty(); }
         }
-       
 
         // --- NAVIGATION ---
         protected void SwitchView(object sender, EventArgs e)
         {
+            divMessage.Visible = false; // Clear messages when switching tabs
             int index = int.Parse(((LinkButton)sender).CommandArgument);
             MainMultiView.ActiveViewIndex = index;
             btnTabProg.CssClass = index == 0 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
@@ -47,7 +46,6 @@ namespace HIMACollegeWebsite
 
         private void BindFaculty()
         {
-            // Specifically selecting ImagePath and Education to avoid DataBinding errors
             gvFaculty.DataSource = DataAccessLayer.GetDataTable("SELECT FacultyID, FullName as Name, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC");
             gvFaculty.DataBind();
         }
@@ -69,7 +67,7 @@ namespace HIMACollegeWebsite
             };
 
             DataAccessLayer.ExecuteNonQuery(sql, p);
-            ClearProgFields(); BindPrograms(); ShowAlert("Program Saved!");
+            ClearProgFields(); BindPrograms(); ShowFeedback("Program saved successfully!");
         }
 
         protected void btnRegFac_Click(object sender, EventArgs e)
@@ -89,7 +87,7 @@ namespace HIMACollegeWebsite
             };
 
             DataAccessLayer.ExecuteNonQuery(sql, p);
-            ClearFacFields(); BindFaculty(); ShowAlert("Faculty Saved!");
+            ClearFacFields(); BindFaculty(); ShowFeedback("Faculty record updated!");
         }
 
         protected void btnUpdateAdm_Click(object sender, EventArgs e)
@@ -98,7 +96,7 @@ namespace HIMACollegeWebsite
             string form = HandleUpload(fuForm, "Admissions");
             string pros = HandleUpload(fuProspectus, "Admissions");
             DataAccessLayer.UpdateAdmissions(fee, form, pros);
-            ShowAlert("Admissions Updated!");
+            ShowFeedback("Admission files updated successfully!");
         }
 
         // --- GRIDVIEW LOGIC ---
@@ -119,12 +117,14 @@ namespace HIMACollegeWebsite
                     txtProgDesc.Text = dr["Description"].ToString();
                     btnSaveProg.Text = "UPDATE PROGRAM";
                     btnCancelProg.Visible = true;
+                    divMessage.Visible = false; // Hide old messages when editing
                 }
             }
             else if (e.CommandName == "DeleteProg")
             {
                 DataAccessLayer.ExecuteNonQuery("DELETE FROM H_Programs WHERE ProgramID=" + id);
                 BindPrograms();
+                ShowFeedback("Program deleted.");
             }
         }
 
@@ -144,12 +144,14 @@ namespace HIMACollegeWebsite
                     txtFacEdu.Text = dr["Education"].ToString();
                     btnRegFac.Text = "UPDATE FACULTY";
                     btnCancelFac.Visible = true;
+                    divMessage.Visible = false;
                 }
             }
             else if (e.CommandName == "DeleteFac")
             {
                 DataAccessLayer.ExecuteNonQuery("DELETE FROM H_Faculty WHERE FacultyID=" + id);
                 BindFaculty();
+                ShowFeedback("Faculty record deleted.");
             }
         }
 
@@ -163,26 +165,20 @@ namespace HIMACollegeWebsite
         private string HandleUpload(FileUpload fu, string folder)
         {
             if (!fu.HasFile) return "";
-
-            // This converts ~/Uploads/Admissions/ to C:\Users\YourName\Documents\Project\Uploads\Admissions\
             string folderPath = Server.MapPath("~/Uploads/" + folder + "/");
-
-            // This checks if the folder exists, and creates it if missing
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
+            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
             string fileName = Guid.NewGuid().ToString().Substring(0, 8) + "_" + Path.GetFileName(fu.FileName);
             string fullPath = Path.Combine(folderPath, fileName);
-
             fu.SaveAs(fullPath);
-
-            // Return the virtual path to save in the Database
             return "~/Uploads/" + folder + "/" + fileName;
         }
 
-        private void ShowAlert(string msg) { ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('{msg}');", true); }
+        private void ShowFeedback(string msg)
+        {
+            divMessage.Visible = true;
+            lblStatusMessage.Text = msg;
+        }
+
         protected void btnLogout_Click(object sender, EventArgs e) { Session.Abandon(); Response.Redirect("AdminLogin.aspx"); }
     }
 }
