@@ -7,13 +7,13 @@
          data-bs-ride="carousel" data-bs-pause="false">
         
         <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100" data-bs-interval="1500">
+            <div class="carousel-item active h-100" data-bs-interval="3000">
                 <img src="Assets/carousel1.png" class="d-block w-100 h-100 opacity-50" style="object-fit: cover;" alt="HIMA Campus 1">
             </div>
-            <div class="carousel-item h-100" data-bs-interval="1500">
+            <div class="carousel-item h-100" data-bs-interval="3000">
                 <img src="Assets/carousel2.jpeg" class="d-block w-100 h-100 opacity-50" style="object-fit: cover;" alt="HIMA Campus 2">
             </div>
-            <div class="carousel-item h-100" data-bs-interval="1500">
+            <div class="carousel-item h-100" data-bs-interval="3000">
                 <img src="Assets/carousel3.jpeg" class="d-block w-100 h-100 opacity-50" style="object-fit: cover;" alt="HIMA Campus 3">
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <span class="badge bg-success mb-3 px-3 py-2 rounded-0 text-uppercase fw-bold shadow">Admission Open 2026</span>
+                        <span class="badge bg-success mb-3 px-3 py-2 rounded-0 text-uppercase fw-bold shadow">Admission Open  <%= DateTime.Now.Year %></span>
                         <h1 class="display-2 fw-bold text-uppercase mb-4">Empowering the Next Generation of <span class="text-success">Engineers</span></h1>
                         <p class="lead mb-5 opacity-75"> With a steadfast focus on quality education, we strive to produce competent and responsible graduates as per industrial needs.</p>
                         <div class="d-flex gap-3">

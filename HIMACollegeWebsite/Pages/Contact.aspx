@@ -25,11 +25,11 @@
         <div class="col-md-4">
             <div class="bg-dark text-white p-4 rounded-0 h-100 border-start border-success border-4 shadow">
                 <h4 class="fw-bold text-success mb-4">Get In Touch</h4>
-                <p class="opacity-75 mb-5">HIMA College of Engineering & Technology - Sabzazar Campus</p>
+                <p class="opacity-75 mb-5">HIMA College of Engineering & Technology</p>
 
                 <div class="mb-4">
                     <h6 class="fw-bold text-success text-uppercase small">Address</h6>
-                    <p class="mb-0">Main Boulevard, Sabzazar, scheme mor Multan Rd, Lahore, 54572, Pakistan</p>
+                    <p class="mb-0">Main Boulevard Sabzazar, Multan Rd, Lahore-Pakistan</p>
                 </div>
 
                 <div class="mb-4">
@@ -39,7 +39,7 @@
 
                 <div class="mb-4">
                     <h6 class="fw-bold text-success text-uppercase small">Email</h6>
-                    <p class="mb-0">info@himacollege.edu.pk</p>
+                    <p class="mb-0">hima4technology@gmail.com</p>
                 </div>
 
                 <div class="mb-4">
