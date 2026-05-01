@@ -53,18 +53,27 @@ namespace HIMACollegeWebsite.DAL
         // --- ADMISSIONS UPDATE ---
         public static void UpdateAdmissions(string fee, string form, string pros)
         {
-            string sql = @"UPDATE H_Admissions SET 
+            try
+            {
+                string sql = @"UPDATE H_Admissions SET 
                           FeeStructurePath=ISNULL(NULLIF(@f,''), FeeStructurePath), 
                           AdmissionFormPath=ISNULL(NULLIF(@fo,''), AdmissionFormPath), 
                           ProspectusPath=ISNULL(NULLIF(@p,''), ProspectusPath), 
                           LastUpdated=GETDATE() WHERE ID=1";
 
-            SqlParameter[] p = {
+                SqlParameter[] p = {
                 new SqlParameter("@f", fee),
                 new SqlParameter("@fo", form),
                 new SqlParameter("@p", pros)
             };
-            ExecuteNonQuery(sql, p);
+                ExecuteNonQuery(sql, p);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

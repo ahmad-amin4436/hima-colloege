@@ -42,6 +42,11 @@
         .full-width-section {
             width: 100%;
         }
+    
+    .custom-nav-link:hover {
+        color: #27ae60 !important;
+        opacity: 1 !important;
+    }
     </style>
 </head>
 
@@ -81,11 +86,13 @@
                 <div class="collapse navbar-collapse" id="navMenu">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75" href="/Default.aspx" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">Home</a>
+                           <a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="/Default.aspx"> Home </a>
+                                                                                                                                           
+
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="aboutDropdown" data-bs-toggle="dropdown" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">About Us</a>
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="#" id="aboutDropdown" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
                             <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 250px;">
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/History.aspx">Our History</a></li>
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Accre.aspx"> Accreditations</a></li>
@@ -95,7 +102,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="programsDropdown" data-bs-toggle="dropdown" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">Programs</a>
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="#" id="programsDropdown" data-bs-toggle="dropdown" aria-expanded="false">Programs</a>
                             <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2">
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/BSPrograms.aspx"> BS Programs</a></li>
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/DAEPrograms.aspx"> DAE Programs</a></li>
@@ -106,7 +113,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="admissionDropdown" data-bs-toggle="dropdown" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">Admissions</a>
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="#" id="admissionDropdown" data-bs-toggle="dropdown" >Admissions</a>
                             <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 240px;">
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#fee-section"> Fee Structure</a></li>
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Admissions.aspx#form-section">Admission Form</a></li>
@@ -116,7 +123,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="studentHubDropdown" data-bs-toggle="dropdown" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">Student Hub</a>
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="#" id="studentHubDropdown" data-bs-toggle="dropdown">Student Hub</a>
                             <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 250px;">
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/StudentHub.aspx#life-campus"> Life in Campus</a></li>
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/StudentHub.aspx#facilities"> Modern Facilities</a></li>
@@ -126,7 +133,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75" href="#" id="facultyDropdown" data-bs-toggle="dropdown" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">Faculty</a>
+                            <a class="nav-link dropdown-toggle px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="#" id="facultyDropdown" data-bs-toggle="dropdown">Faculty</a>
                             <ul class="dropdown-menu rounded-0 border-0 shadow-lg py-3 px-2" style="min-width: 250px;">
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#civil"> Civil Dept</a></li>
                                 <li><a class="dropdown-item py-2 small fw-semibold text-uppercase opacity-75" href="/Pages/Faculty.aspx#electrical"> Electrical Dept</a></li>
@@ -138,7 +145,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75" href="/Pages/Contact.aspx" onmouseover="this.style.color='#27ae60'; this.style.opacity='1'" onmouseout="this.style.color=''; this.style.opacity='0.75'">Contact Us</a>
+                           <a class="nav-link px-3 small fw-bold text-uppercase text-dark opacity-75 custom-nav-link" href="/Pages/Contact.aspx"> Contact </a>
                         </li>
                     </ul>
 
