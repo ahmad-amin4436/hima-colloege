@@ -35,7 +35,7 @@
 
                 <div class="mb-4">
                     <h6 class="fw-bold text-success text-uppercase small">Email</h6>
-                    <p class="mb-0">hima4technology@gmail.com</p>
+                    <p class="mb-0">info@hima.edu.pk</p>
                 </div>
 
                 <div class="mb-4">

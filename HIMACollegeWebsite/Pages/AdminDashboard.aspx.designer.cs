@@ -157,6 +157,51 @@ namespace HIMACollegeWebsite {
         protected global::System.Web.UI.WebControls.TextBox txtProgDesc;
         
         /// <summary>
+        /// fuProgImg1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProgImg1;
+        
+        /// <summary>
+        /// fuProgImg2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProgImg2;
+        
+        /// <summary>
+        /// fuProgImg3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProgImg3;
+        
+        /// <summary>
+        /// fuProgImg4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProgImg4;
+        
+        /// <summary>
+        /// fuProgPdf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProgPdf;
+        
+        /// <summary>
         /// btnCancelProg control.
         /// </summary>
         /// <remarks>
@@ -227,6 +272,15 @@ namespace HIMACollegeWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdateAdm;
+        
+        /// <summary>
+        /// gvAdmissions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAdmissions;
         
         /// <summary>
         /// ViewFaculty control.

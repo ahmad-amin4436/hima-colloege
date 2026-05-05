@@ -10,52 +10,66 @@ namespace HIMACollegeWebsite
 {
     public partial class AdminDashboard : System.Web.UI.Page
     {
-        protected override void OnInit(EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            base.OnInit(e);
-            if (ScriptManager.GetCurrent(this) != null)
+            // Security Check
+            if (Session["admin"] == null) Response.Redirect("AdminLogin.aspx");
+
+            if (!IsPostBack)
             {
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnUpdateAdm);
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnRegFac);
+                BindPrograms();
+                BindFaculty();
+                BindAdmissions();
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["admin"] == null) Response.Redirect("AdminLogin.aspx");
-            if (!IsPostBack) { BindPrograms(); BindFaculty(); }
-        }
-
-        // --- NAVIGATION ---
         protected void SwitchView(object sender, EventArgs e)
         {
-            divMessage.Visible = false; // Clear messages when switching tabs
+            divMessage.Visible = false;
             int index = int.Parse(((LinkButton)sender).CommandArgument);
             MainMultiView.ActiveViewIndex = index;
-            btnTabProg.CssClass = index == 0 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
-            btnTabAdm.CssClass = index == 1 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
+
+            // UI Tab Styling Logic
+            btnTabProg.CssClass = index == 0 ? "btn btn-success w-100 rounded-0 py-4 fw-bold border-end" : "btn btn-dark w-100 rounded-0 py-4 fw-bold border-end";
+            btnTabAdm.CssClass = index == 1 ? "btn btn-success w-100 rounded-0 py-4 fw-bold border-end" : "btn btn-dark w-100 rounded-0 py-4 fw-bold border-end";
             btnTabFac.CssClass = index == 2 ? "btn btn-success w-100 rounded-0 py-4 fw-bold" : "btn btn-dark w-100 rounded-0 py-4 fw-bold";
         }
 
-        // --- BINDING ---
+        #region Programs (Table: H_Programs)
         private void BindPrograms()
         {
+            // Fetching all programs including new image and PDF columns
             gvPrograms.DataSource = DataAccessLayer.GetDataTable("SELECT * FROM H_Programs ORDER BY ProgramID DESC");
             gvPrograms.DataBind();
         }
 
-        private void BindFaculty()
-        {
-            gvFaculty.DataSource = DataAccessLayer.GetDataTable("SELECT FacultyID, FullName as Name, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC");
-            gvFaculty.DataBind();
-        }
-
-        // --- ACTIONS ---
         protected void btnSaveProg_Click(object sender, EventArgs e)
         {
-            string sql = string.IsNullOrEmpty(hfProgID.Value)
-                ? "INSERT INTO H_Programs (Title, Category, Duration, StartDate, Description) VALUES (@t, @c, @d, @s, @de)"
-                : "UPDATE H_Programs SET Title=@t, Category=@c, Duration=@d, StartDate=@s, Description=@de WHERE ProgramID=@id";
+            // Handle File Uploads (Multiple Images and PDF)
+            string img1 = HandleUpload(fuProgImg1, "DAEPrograms");
+            string img2 = HandleUpload(fuProgImg2, "DAEPrograms");
+            string img3 = HandleUpload(fuProgImg3, "DAEPrograms");
+            string img4 = HandleUpload(fuProgImg4, "DAEPrograms");
+            string pdfPath = HandleUpload(fuProgPdf, "Syllabus");
+
+            string sql;
+            if (string.IsNullOrEmpty(hfProgID.Value))
+            {
+                // Insert New Program
+                sql = @"INSERT INTO H_Programs (Title, Category, Duration, StartDate, Description, ImagePath, ImagePath2, ImagePath3, ImagePath4, PdfPath) 
+                        VALUES (@t, @c, @d, @s, @de, @i, @i2, @i3, @i4, @pdf)";
+            }
+            else
+            {
+                // Update Existing Program (ISNULL logic ensures we don't overwrite existing files if no new file is uploaded)
+                sql = @"UPDATE H_Programs SET Title=@t, Category=@c, Duration=@d, StartDate=@s, Description=@de, 
+                        ImagePath=ISNULL(NULLIF(@i,''), ImagePath), 
+                        ImagePath2=ISNULL(NULLIF(@i2,''), ImagePath2), 
+                        ImagePath3=ISNULL(NULLIF(@i3,''), ImagePath3), 
+                        ImagePath4=ISNULL(NULLIF(@i4,''), ImagePath4), 
+                        PdfPath=ISNULL(NULLIF(@pdf,''),PdfPath) 
+                        WHERE ProgramID=@id";
+            }
 
             SqlParameter[] p = {
                 new SqlParameter("@t", txtProgTitle.Text.Trim()),
@@ -63,11 +77,55 @@ namespace HIMACollegeWebsite
                 new SqlParameter("@d", txtDuration.Text.Trim()),
                 new SqlParameter("@s", txtStartDate.Text.Trim()),
                 new SqlParameter("@de", txtProgDesc.Text.Trim()),
+                new SqlParameter("@i", img1),
+                new SqlParameter("@i2", img2),
+                new SqlParameter("@i3", img3),
+                new SqlParameter("@i4", img4),
+                new SqlParameter("@pdf", pdfPath),
                 new SqlParameter("@id", (object)hfProgID.Value ?? DBNull.Value)
             };
 
             DataAccessLayer.ExecuteNonQuery(sql, p);
-            ClearProgFields(); BindPrograms(); ShowFeedback("Program saved successfully!");
+            ClearProgFields();
+            BindPrograms();
+            ShowFeedback("Program saved with attachments successfully!");
+        }
+
+        protected void gvPrograms_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int id = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName == "EditProg")
+            {
+                DataTable dt = DataAccessLayer.GetDataTable("SELECT * FROM H_Programs WHERE ProgramID=" + id);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    hfProgID.Value = dr["ProgramID"].ToString();
+                    txtProgTitle.Text = dr["Title"].ToString();
+                    ddlProgCat.SelectedValue = dr["Category"].ToString();
+                    txtDuration.Text = dr["Duration"].ToString();
+                    txtStartDate.Text = dr["StartDate"].ToString();
+                    txtProgDesc.Text = dr["Description"].ToString();
+
+                    btnSaveProg.Text = "UPDATE PROGRAM";
+                    btnCancelProg.Visible = true;
+                }
+            }
+            else if (e.CommandName == "DeleteProg")
+            {
+                DataAccessLayer.ExecuteNonQuery("DELETE FROM H_Programs WHERE ProgramID=" + id);
+                BindPrograms();
+                ShowFeedback("Program deleted.");
+            }
+        }
+        #endregion
+
+        #region Faculty (Table: H_Faculty)
+        private void BindFaculty()
+        {
+            string sql = "SELECT FacultyID, FullName AS Name, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC";
+            gvFaculty.DataSource = DataAccessLayer.GetDataTable(sql);
+            gvFaculty.DataBind();
         }
 
         protected void btnRegFac_Click(object sender, EventArgs e)
@@ -87,45 +145,9 @@ namespace HIMACollegeWebsite
             };
 
             DataAccessLayer.ExecuteNonQuery(sql, p);
-            ClearFacFields(); BindFaculty(); ShowFeedback("Faculty record updated!");
-        }
-
-        protected void btnUpdateAdm_Click(object sender, EventArgs e)
-        {
-            string fee = HandleUpload(fuFee, "Admissions");
-            string form = HandleUpload(fuForm, "Admissions");
-            string pros = HandleUpload(fuProspectus, "Admissions");
-            DataAccessLayer.UpdateAdmissions(fee, form, pros);
-            ShowFeedback("Admission files updated successfully!");
-        }
-
-        // --- GRIDVIEW LOGIC ---
-        protected void gvPrograms_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int id = Convert.ToInt32(e.CommandArgument);
-            if (e.CommandName == "EditProg")
-            {
-                DataTable dt = DataAccessLayer.GetDataTable("SELECT * FROM H_Programs WHERE ProgramID=" + id);
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow dr = dt.Rows[0];
-                    hfProgID.Value = dr["ProgramID"].ToString();
-                    txtProgTitle.Text = dr["Title"].ToString();
-                    ddlProgCat.SelectedValue = dr["Category"].ToString();
-                    txtDuration.Text = dr["Duration"].ToString();
-                    txtStartDate.Text = dr["StartDate"].ToString();
-                    txtProgDesc.Text = dr["Description"].ToString();
-                    btnSaveProg.Text = "UPDATE PROGRAM";
-                    btnCancelProg.Visible = true;
-                    divMessage.Visible = false; // Hide old messages when editing
-                }
-            }
-            else if (e.CommandName == "DeleteProg")
-            {
-                DataAccessLayer.ExecuteNonQuery("DELETE FROM H_Programs WHERE ProgramID=" + id);
-                BindPrograms();
-                ShowFeedback("Program deleted.");
-            }
+            ClearFacFields();
+            BindFaculty();
+            ShowFeedback("Faculty record updated!");
         }
 
         protected void gvFaculty_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -142,9 +164,9 @@ namespace HIMACollegeWebsite
                     ddlFacultyDept.SelectedValue = dr["Department"].ToString();
                     txtFacDesig.Text = dr["Designation"].ToString();
                     txtFacEdu.Text = dr["Education"].ToString();
+
                     btnRegFac.Text = "UPDATE FACULTY";
                     btnCancelFac.Visible = true;
-                    divMessage.Visible = false;
                 }
             }
             else if (e.CommandName == "DeleteFac")
@@ -154,23 +176,71 @@ namespace HIMACollegeWebsite
                 ShowFeedback("Faculty record deleted.");
             }
         }
+        #endregion
 
-        // --- HELPERS ---
-        protected void btnCancelProg_Click(object sender, EventArgs e) { ClearProgFields(); }
-        protected void btnCancelFac_Click(object sender, EventArgs e) { ClearFacFields(); }
+        #region Admissions (Table: H_Admissions)
+        private void BindAdmissions()
+        {
+            DataTable dt = DataAccessLayer.GetDataTable("SELECT TOP 1 * FROM H_Admissions");
+            DataTable displayTable = new DataTable();
+            displayTable.Columns.Add("DocType");
+            displayTable.Columns.Add("FilePath");
 
-        private void ClearProgFields() { hfProgID.Value = ""; txtProgTitle.Text = ""; txtProgDesc.Text = ""; txtDuration.Text = ""; txtStartDate.Text = ""; btnSaveProg.Text = "SAVE PROGRAM"; btnCancelProg.Visible = false; }
-        private void ClearFacFields() { hfFacID.Value = ""; txtFacName.Text = ""; txtFacDesig.Text = ""; txtFacEdu.Text = ""; btnRegFac.Text = "REGISTER FACULTY"; btnCancelFac.Visible = false; }
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                displayTable.Rows.Add("Fee Structure", dr["FeeStructurePath"]);
+                displayTable.Rows.Add("Admission Form", dr["AdmissionFormPath"]);
+                displayTable.Rows.Add("Prospectus", dr["ProspectusPath"]);
+            }
+            gvAdmissions.DataSource = displayTable;
+            gvAdmissions.DataBind();
+        }
 
+        protected void btnUpdateAdm_Click(object sender, EventArgs e)
+        {
+            string fee = fuFee.HasFile ? HandleUpload(fuFee, "Admissions") : "";
+            string form = fuForm.HasFile ? HandleUpload(fuForm, "Admissions") : "";
+            string pros = fuProspectus.HasFile ? HandleUpload(fuProspectus, "Admissions") : "";
+
+            string sql = @"IF EXISTS (SELECT 1 FROM H_Admissions)
+                           UPDATE H_Admissions SET 
+                                FeeStructurePath = ISNULL(NULLIF(@fee,''), FeeStructurePath),
+                                AdmissionFormPath = ISNULL(NULLIF(@form,''), AdmissionFormPath),
+                                ProspectusPath = ISNULL(NULLIF(@pros,''), ProspectusPath),
+                                LastUpdated = GETDATE()
+                           ELSE
+                           INSERT INTO H_Admissions (FeeStructurePath, AdmissionFormPath, ProspectusPath) 
+                           VALUES (@fee, @form, @pros)";
+
+            SqlParameter[] p = {
+                new SqlParameter("@fee", fee),
+                new SqlParameter("@form", form),
+                new SqlParameter("@pros", pros)
+            };
+
+            DataAccessLayer.ExecuteNonQuery(sql, p);
+            BindAdmissions();
+            ShowFeedback("Admission files updated successfully!");
+        }
+        #endregion
+
+        #region Helpers
         private string HandleUpload(FileUpload fu, string folder)
         {
             if (!fu.HasFile) return "";
-            string folderPath = Server.MapPath("~/Uploads/" + folder + "/");
-            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
-            string fileName = Guid.NewGuid().ToString().Substring(0, 8) + "_" + Path.GetFileName(fu.FileName);
-            string fullPath = Path.Combine(folderPath, fileName);
-            fu.SaveAs(fullPath);
-            return "~/Uploads/" + folder + "/" + fileName;
+            try
+            {
+                string folderPath = Server.MapPath("~/Uploads/" + folder + "/");
+                if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+
+                // Use Guid to ensure unique filenames and prevent overwriting
+                string fileName = Guid.NewGuid().ToString().Substring(0, 8) + "_" + Path.GetFileName(fu.FileName);
+                string fullPath = Path.Combine(folderPath, fileName);
+                fu.SaveAs(fullPath);
+                return "~/Uploads/" + folder + "/" + fileName;
+            }
+            catch { return ""; }
         }
 
         private void ShowFeedback(string msg)
@@ -179,6 +249,35 @@ namespace HIMACollegeWebsite
             lblStatusMessage.Text = msg;
         }
 
-        protected void btnLogout_Click(object sender, EventArgs e) { Session.Abandon(); Response.Redirect("AdminLogin.aspx"); }
+        protected void btnCancelProg_Click(object sender, EventArgs e) { ClearProgFields(); }
+        protected void btnCancelFac_Click(object sender, EventArgs e) { ClearFacFields(); }
+
+        private void ClearProgFields()
+        {
+            hfProgID.Value = "";
+            txtProgTitle.Text = "";
+            txtProgDesc.Text = "";
+            txtDuration.Text = "";
+            txtStartDate.Text = "";
+            btnSaveProg.Text = "SAVE PROGRAM";
+            btnCancelProg.Visible = false;
+        }
+
+        private void ClearFacFields()
+        {
+            hfFacID.Value = "";
+            txtFacName.Text = "";
+            txtFacDesig.Text = "";
+            txtFacEdu.Text = "";
+            btnRegFac.Text = "REGISTER FACULTY";
+            btnCancelFac.Visible = false;
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("AdminLogin.aspx");
+        }
+        #endregion
     }
 }

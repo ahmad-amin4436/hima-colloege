@@ -300,7 +300,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Admissions\" />
+    <Folder Include="Uploads\DAEPrograms\" />
     <Folder Include="Uploads\Faculty\" />
+    <Folder Include="Uploads\Syllabus\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
