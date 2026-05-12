@@ -123,36 +123,73 @@ namespace HIMACollegeWebsite
         #region Faculty (Table: H_Faculty)
         private void BindFaculty()
         {
-            string sql = "SELECT FacultyID, FullName AS Name, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC";
+            // Selecting columns needed for the GridView display
+            string sql = "SELECT FacultyID, FullName AS NAME, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC";
             gvFaculty.DataSource = DataAccessLayer.GetDataTable(sql);
             gvFaculty.DataBind();
         }
 
         protected void btnRegFac_Click(object sender, EventArgs e)
         {
-            string img = HandleUpload(fuFacImage, "Faculty");
-            string sql = string.IsNullOrEmpty(hfFacID.Value)
-                ? "INSERT INTO H_Faculty (FullName, Department, Designation, Education, ImagePath) VALUES (@n, @d, @de, @e, @i)"
-                : "UPDATE H_Faculty SET FullName=@n, Department=@d, Designation=@de, Education=@e, ImagePath=ISNULL(NULLIF(@i,''), ImagePath) WHERE FacultyID=@id";
+            try
+            {
+                // 1. Handle the Image Upload (Returns relative path "~/Uploads/Faculty/..." or empty)
+                string img = HandleUpload(fuFacImage, "Faculty");
 
-            SqlParameter[] p = {
+                if (string.IsNullOrEmpty(hfFacID.Value))
+                {
+                    // INSERT NEW FACULTY
+                    string sql = "INSERT INTO H_Faculty (FullName, Department, Designation, Education, ImagePath) VALUES (@n, @d, @de, @e, @i)";
+
+                    // Set default if no image uploaded for new record
+                    string finalImg = string.IsNullOrEmpty(img) ? "~/Uploads/Faculty/" : img;
+
+                    SqlParameter[] p = {
+                new SqlParameter("@n", txtFacName.Text.Trim()),
+                new SqlParameter("@d", ddlFacultyDept.SelectedValue),
+                new SqlParameter("@de", txtFacDesig.Text.Trim()),
+                new SqlParameter("@e", txtFacEdu.Text.Trim()),
+                new SqlParameter("@i", finalImg)
+            };
+                    DataAccessLayer.ExecuteNonQuery(sql, p);
+                    ShowFeedback("Faculty member registered successfully!");
+                }
+                else
+                {
+                    // UPDATE EXISTING FACULTY
+                    int id = Convert.ToInt32(hfFacID.Value);
+
+                    // Note: ISNULL(NULLIF(@i,''), ImagePath) ensures the image isn't lost if no new file is selected
+                    string sql = @"UPDATE H_Faculty SET 
+                           FullName=@n, Department=@d, Designation=@de, Education=@e, 
+                           ImagePath=ISNULL(NULLIF(@i,''), ImagePath) 
+                           WHERE FacultyID=@id";
+
+                    SqlParameter[] p = {
                 new SqlParameter("@n", txtFacName.Text.Trim()),
                 new SqlParameter("@d", ddlFacultyDept.SelectedValue),
                 new SqlParameter("@de", txtFacDesig.Text.Trim()),
                 new SqlParameter("@e", txtFacEdu.Text.Trim()),
                 new SqlParameter("@i", img),
-                new SqlParameter("@id", (object)hfFacID.Value ?? DBNull.Value)
+                new SqlParameter("@id", id)
             };
+                    DataAccessLayer.ExecuteNonQuery(sql, p);
+                    ShowFeedback("Faculty record updated successfully!");
+                }
 
-            DataAccessLayer.ExecuteNonQuery(sql, p);
-            ClearFacFields();
-            BindFaculty();
-            ShowFeedback("Faculty record updated!");
+                ClearFacFields();
+                BindFaculty();
+            }
+            catch (Exception ex)
+            {
+                ShowFeedback("Error: " + ex.Message);
+            }
         }
 
         protected void gvFaculty_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int id = Convert.ToInt32(e.CommandArgument);
+
             if (e.CommandName == "EditFac")
             {
                 DataTable dt = DataAccessLayer.GetDataTable("SELECT * FROM H_Faculty WHERE FacultyID=" + id);
@@ -165,8 +202,12 @@ namespace HIMACollegeWebsite
                     txtFacDesig.Text = dr["Designation"].ToString();
                     txtFacEdu.Text = dr["Education"].ToString();
 
+                    // Change UI to Update Mode
                     btnRegFac.Text = "UPDATE FACULTY";
                     btnCancelFac.Visible = true;
+
+                    // Scroll user to the form
+                    divMessage.Visible = false;
                 }
             }
             else if (e.CommandName == "DeleteFac")

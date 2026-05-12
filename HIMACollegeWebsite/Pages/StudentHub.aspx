@@ -66,11 +66,11 @@
                      onmouseover="this.style.transform='translateY(-10px)'; this.classList.replace('shadow-sm', 'shadow-lg'); this.querySelector('img').style.transform='scale(1.1)';" 
                      onmouseout="this.style.transform='translateY(0px)'; this.classList.replace('shadow-lg', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                     <div class="ratio ratio-4x3 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1521503862198-2ae9a997bbc9?auto=format&fit=crop&w=600&q=80" 
-                             class="object-fit-cover transition-all" style="transition: transform 0.5s ease;" alt="Beautician Lab" />
+                        <img src="/Assets/8.jpeg" 
+                             class="object-fit-cover transition-all" style="transition: transform 0.5s ease;" alt=" Lab" />
                     </div>
                     <div class="card-body p-4 border-top border-success border-4 d-flex flex-column bg-white">
-                        <h6 class="fw-bold text-uppercase mb-2">Beautician Lab</h6>
+                        <h6 class="fw-bold text-uppercase mb-2"> Lab</h6>
                         <p class="small text-muted mb-0">Professional vocational training center for female students.</p>
                     </div>
                 </div>
@@ -82,11 +82,11 @@
                      onmouseover="this.style.transform='translateY(-10px)'; this.classList.replace('shadow-sm', 'shadow-lg'); this.querySelector('img').style.transform='scale(1.1)';" 
                      onmouseout="this.style.transform='translateY(0px)'; this.classList.replace('shadow-lg', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                     <div class="ratio ratio-4x3 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1528469133842-87ba42a42531?auto=format&fit=crop&w=600&q=80" 
+                        <img src="/Assets/7.jpeg" 
                              class="object-fit-cover transition-all" style="transition: transform 0.5s ease;" alt="Sewing Lab" />
                     </div>
                     <div class="card-body p-4 border-top border-success border-4 d-flex flex-column bg-white">
-                        <h6 class="fw-bold text-uppercase mb-2">Sewing Lab</h6>
+                        <h6 class="fw-bold text-uppercase mb-2"> Lab</h6>
                         <p class="small text-muted mb-0">Harnessing creativity for industrial textile productivity.</p>
                     </div>
                 </div>
@@ -98,11 +98,11 @@
                      onmouseover="this.style.transform='translateY(-10px)'; this.classList.replace('shadow-sm', 'shadow-lg'); this.querySelector('img').style.transform='scale(1.1)';" 
                      onmouseout="this.style.transform='translateY(0px)'; this.classList.replace('shadow-lg', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                     <div class="ratio ratio-4x3 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=600&q=80" 
+                        <img src="/Assets/carousel1.png" 
                              class="object-fit-cover transition-all" style="transition: transform 0.5s ease;" alt="Cricket Ground" />
                     </div>
                     <div class="card-body p-4 border-top border-success border-4 d-flex flex-column bg-white">
-                        <h6 class="fw-bold text-uppercase mb-2">Cricket Ground</h6>
+                        <h6 class="fw-bold text-uppercase mb-2">Ground</h6>
                         <p class="small text-muted mb-0">Dedicated area for sports and physical development.</p>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                      onmouseover="this.style.transform='translateY(-10px)'; this.classList.replace('shadow-sm', 'shadow-lg'); this.querySelector('img').style.transform='scale(1.1)';" 
                      onmouseout="this.style.transform='translateY(0px)'; this.classList.replace('shadow-lg', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                     <div class="ratio ratio-4x3 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80" 
+                        <img src="/Assets/16.jpeg" 
                              class="object-fit-cover transition-all" style="transition: transform 0.5s ease;" alt="Vocational Hub" />
                     </div>
                     <div class="card-body p-4 border-top border-success border-4 d-flex flex-column bg-white">
@@ -141,7 +141,7 @@
                      onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateX(0px)';">
                     <div class="col-sm-4 overflow-hidden">
                         <div class="h-100 ratio ratio-1x1">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" 
+                            <img src="/Assets/Pak.jpg" 
                                  class="object-fit-cover transition-all" alt="Independence Day" />
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                      onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateX(0px)';">
                     <div class="col-sm-4 overflow-hidden">
                         <div class="h-100 ratio ratio-1x1">
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" 
+                            <img src="/Assets/ind.jpg" 
                                  class="object-fit-cover" alt="Industrial Tours" />
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                      onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateX(0px)';">
                     <div class="col-sm-4 overflow-hidden">
                         <div class="h-100 ratio ratio-1x1">
-                            <img src="https://images.unsplash.com/photo-1475721027785-f74dea9f2682?auto=format&fit=crop&w=400&q=80" 
+                            <img src="/Assets/carousel2.jpeg" 
                                  class="object-fit-cover" alt="Guest Lectures" />
                         </div>
                     </div>

@@ -53,9 +53,9 @@
         <div class="col-lg-6">
             <h6 class="text-success fw-bold text-uppercase mb-3">About HIMA</h6>
             <h2 class="display-5 fw-bold mb-4">A Legacy of Technical Education</h2>
-            <p class="text-muted mb-4 lead">Since 1962, our institute has empowered over 600 students through pioneer technical and vocational training within a modern, purpose-built campus.
-Now evolved into HIMA College of Engineering Technology, we offer GCUF-affiliated Bachelor’s degrees designed to meet modern industrial standards.
-Our mission is to produce industry-ready graduates and entrepreneurs through hands-on excellence and NTC-accredited academic frameworks.</p>
+            <p class="text-muted mb-4 lead">  Anjuman Himayat-i-Islam (AHI)—the first Muslim NGO of Indo-Pak was established in September 1884. 
+                            Its main objective was to disseminate education to the poor segments of society. 
+                            Technical education, being the need of the day, became the main aim and mission of AHI.</p>
             <a href="/Pages/History.aspx" class="btn btn-dark rounded-0 px-4 py-2 fw-bold text-uppercase small shadow-sm">
                 Our Full Story <i class="fas fa-arrow-right ms-2"></i>
             </a>
@@ -71,35 +71,35 @@ Our mission is to produce industry-ready graduates and entrepreneurs through han
         </div>
         <div class="row g-4 text-center">
             
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 border-0 shadow-sm p-5 border-bottom border-success border-4 rounded-0" 
                      style="transition: all 0.3s ease-in-out; cursor: pointer;"
                      onmouseover="this.style.transform='translateY(-15px)'; this.classList.remove('shadow-sm'); this.classList.add('shadow-lg');" 
                      onmouseout="this.style.transform='translateY(0px)'; this.classList.remove('shadow-lg'); this.classList.add('shadow-sm');">
                     <div class="card-body p-0">
                         <i class="fas fa-laptop-code fa-3x text-success mb-4"></i>
-                        <h5 class="fw-bold text-uppercase">IT & Computer Science</h5>
+                        <h5 class="fw-bold text-uppercase">BS Programs</h5>
                         <p class="small text-muted mb-4">Modern CIT labs and cutting-edge software development training.</p>
                         <a href="/Pages/BSPrograms.aspx#it-programs" class="link-success fw-bold text-decoration-none small stretched-link">Explore Department <i class="fas fa-chevron-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 border-0 shadow-sm p-5 border-bottom border-success border-4 rounded-0" 
                      style="transition: all 0.3s ease-in-out; cursor: pointer;"
                      onmouseover="this.style.transform='translateY(-15px)'; this.classList.remove('shadow-sm'); this.classList.add('shadow-lg');" 
                      onmouseout="this.style.transform='translateY(0px)'; this.classList.remove('shadow-lg'); this.classList.add('shadow-sm');">
                     <div class="card-body p-0">
                         <i class="fas fa-tools fa-3x text-success mb-4"></i>
-                        <h5 class="fw-bold text-uppercase">Civil & Mechanical</h5>
+                        <h5 class="fw-bold text-uppercase">DAE Programs</h5>
                         <p class="small text-muted mb-4">Hands-on engineering workshops and industry-standard training.</p>
-                        <a href="/Pages/Civil.aspx#bs-programs" class="link-success fw-bold text-decoration-none small stretched-link">Explore Department <i class="fas fa-chevron-right ms-1"></i></a>
+                        <a href="/Pages/DAEPrograms.aspx" class="link-success fw-bold text-decoration-none small stretched-link">Explore Department <i class="fas fa-chevron-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 border-0 shadow-sm p-5 border-bottom border-success border-4 rounded-0" 
                      style="transition: all 0.3s ease-in-out; cursor: pointer;"
                      onmouseover="this.style.transform='translateY(-15px)'; this.classList.remove('shadow-sm'); this.classList.add('shadow-lg');" 
@@ -108,7 +108,20 @@ Our mission is to produce industry-ready graduates and entrepreneurs through han
                         <i class="fas fa-drafting-compass fa-3x text-success mb-4"></i>
                         <h5 class="fw-bold text-uppercase">Vocational Hub</h5>
                         <p class="small text-muted mb-4">Empowering skills through specialized short courses and diplomas.</p>
-                        <a href="/Pages/Vocational.aspx#vocational-hub" class="link-success fw-bold text-decoration-none small stretched-link">Explore Department <i class="fas fa-chevron-right ms-1"></i></a>
+                        <a href="/Pages/Vocational.aspx" class="link-success fw-bold text-decoration-none small stretched-link">Explore Department <i class="fas fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm p-5 border-bottom border-success border-4 rounded-0" 
+                     style="transition: all 0.3s ease-in-out; cursor: pointer;"
+                     onmouseover="this.style.transform='translateY(-15px)'; this.classList.remove('shadow-sm'); this.classList.add('shadow-lg');" 
+                     onmouseout="this.style.transform='translateY(0px)'; this.classList.remove('shadow-lg'); this.classList.add('shadow-sm');">
+                    <div class="card-body p-0">
+                        <i class="fas fa-tools fa-3x text-success mb-4"></i>
+                        <h5 class="fw-bold text-uppercase">Short Courses</h5>
+                        <p class="small text-muted mb-4">Hands-on engineering workshops and industry-standard training.</p>
+                        <a href="/Pages/ShortCourses.aspx" class="link-success fw-bold text-decoration-none small stretched-link">Explore Department <i class="fas fa-chevron-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -133,7 +146,11 @@ Our mission is to produce industry-ready graduates and entrepreneurs through han
             </div>
         </div>
         <div class="col-lg-6">
-            <img src="Assets/Carousel3.jpeg" class="w-100 h-100 opacity-75" style="object-fit: cover; min-height: 400px;" alt="Faculty Session">
+            <img src="Assets/Carousel3.jpeg" class="w-100 h-100 opacity-75" 
+                         style="object-fit: cover; object-position: center; transition: transform 0.5s ease;" 
+                         onmouseover="this.style.transform='scale(1.1)';" 
+                         onmouseout="this.style.transform='scale(1.0)';"
+                         alt="Faculty Session">
         </div>
     </div>
 </div>

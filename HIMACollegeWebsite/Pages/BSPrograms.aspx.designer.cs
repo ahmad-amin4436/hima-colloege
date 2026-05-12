@@ -13,12 +13,12 @@ namespace HIMACollegeWebsite {
     public partial class BSPrograms {
         
         /// <summary>
-        /// rpBSPrograms control.
+        /// rpBSDepartments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpBSPrograms;
+        protected global::System.Web.UI.WebControls.Repeater rpBSDepartments;
     }
 }

@@ -105,10 +105,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\16.jpeg" />
+    <Content Include="Assets\8.jpeg" />
     <Content Include="Assets\carousel1.png" />
     <Content Include="Assets\carousel2.jpeg" />
     <Content Include="Assets\carousel3.jpeg" />
+    <Content Include="Assets\ind.jpg" />
     <Content Include="Assets\Logo_HIMA.png" />
+    <Content Include="Assets\7.jpeg" />
+    <Content Include="Assets\pak.jpg" />
     <Content Include="Pages\Accre.aspx" />
     <Content Include="Pages\Administration.aspx" />
     <Content Include="Pages\Admissions.aspx" />
@@ -140,6 +145,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="DB_backup\HIMA__DB.bak" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Pages\Vocational.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -300,9 +306,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Admissions\" />
+    <Folder Include="Uploads\BSPrograms\" />
     <Folder Include="Uploads\DAEPrograms\" />
     <Folder Include="Uploads\Faculty\" />
+    <Folder Include="Uploads\ShortCourses\" />
     <Folder Include="Uploads\Syllabus\" />
+    <Folder Include="Uploads\Vocational\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

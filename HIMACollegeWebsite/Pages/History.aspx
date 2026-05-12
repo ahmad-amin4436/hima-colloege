@@ -26,45 +26,58 @@
                 <div class="col-lg-7">
                     
                     <!-- SECTION 1: Brief Introduction (College Specific) -->
-                    <div class="mb-5">
-                        <h2 class="fw-bold text-success border-start border-4 ps-3 mb-4 text-uppercase">Brief Introduction</h2>
-                        <p class="text-muted fs-5 lh-lg mb-3">
-                            Anjuman Himayat-I-Islam, over century old Muslim NGO in the Indo-Pak Subcontinent in association 
-                            with Muhammad Amin Wakf Estate initially established Polytechnic and Vocational Institute in its 
-                            old premises inside Dar-ul-Shafqat commonly known Yateem Khana, in the year 1962.
-                        </p>
+                   <div class="col-lg-7">
+    <!-- SECTION 1: Brief Introduction (College Specific) -->
+    <div class="mb-5">
+        <h2 class="fw-bold text-success border-start border-4 ps-3 mb-4 text-uppercase">Brief Introduction</h2>
+        <p class="text-muted fs-5 lh-lg mb-3">
+            Anjuman Himayat-i-Islam (AHI)—the first Muslim NGO of Indo-Pak was established in September 1884. 
+            Its main objective was to disseminate education to the poor segments of society. 
+            Technical education, being the need of the day, became the main aim and mission of AHI.
+        </p>
 
-                        <div class="collapse" id="detailedIntro">
-                            <p class="text-muted fs-5 lh-lg">
-                                Later the Polytechnic and Vocational Institute was shifted to a purpose built campus spread over an area of 
-                                more than eight Kanals having purpose built building and spacious playground. It is the only institute 
-                                in the town having its own purpose built campus and vast playgrounds. Today more than 600 
-                                students are enrolled in this Institute in various technical courses.
-                            </p>
-                            <p class="text-muted fs-5 lh-lg">
-                                It has been a pioneer in providing quality technical and vocational education. We offer specialized programs in 
-                                Electrical, Civil, Mechanical, Computer Information Technology, and HVAC&R, equipping students with the practical 
-                                skills needed for today's dynamic industrial requirements. 
-                            </p>
-                            <p class="text-muted fs-5 lh-lg">
-                                Realizing the need and requirements of higher education the management has decided to upgrade 
-                                the Polytechnic to Degree College, alongside the existing Polytechnic and Vocational Institute. 
-                                <strong>HIMA College of Engineering Technology</strong> offers Bachelor's degree programs affiliated with 
-                                Govt. College University Faisalabad (GCUF) and accredited by the National Technology Council.
-                            </p>
-                        </div>
+        <div class="collapse" id="detailedIntro">
+            <p class="text-muted fs-5 lh-lg">
+                Himayat-i-Islam Mohammad Amin Polytechnic and Vocational Institute was established in 2002. 
+                With the increase in student strength, a purpose-built campus became necessary.
+            </p>
+            <p class="text-muted fs-5 lh-lg">
+                A joint venture was undertaken with Mohammad Amin WAKAF Estate to construct a new campus in Sabzazar Housing Scheme. A 7 Kanal–16 Marla piece of land was provided by Anjuman, and the building was constructed by Mohammad Amin WAKAF Estate, Karachi. 
+                The construction was completed in 2009, and the Institute started functioning in 2010. 
+            </p>
+            
 
-                        <a class="btn btn-success rounded-0 px-4 py-2 fw-bold text-uppercase mt-2" 
-                           data-bs-toggle="collapse" 
-                           href="#detailedIntro" 
-                           role="button" 
-                           aria-expanded="false" 
-                           onclick="this.innerHTML = (this.innerHTML.includes('View Full Info') ? 'Show Less <i class=\'fas fa-chevron-up ms-1\'></i>' : 'View Full Info <i class=\'fas fa-chevron-down ms-1\'></i>')">
-                            View Full Info <i class="fas fa-chevron-down ms-1"></i>
-                        </a>
-                    </div>
+            <!-- NEW EXTRACTED CONTENT FROM image_8de2a5.jpg -->
+            <div class="mt-4 p-4 bg-light border-start border-success border-4">
+                <h4 class="fw-bold text-dark mb-3">Modernization & Upgradation</h4>
+                <p class="text-muted fs-5 lh-lg">
+                    In this era of emerging technologies, old and outdated technologies have become obsolete, especially with the induction of Artificial Intelligence. 
+                    To meet these emerging technological trends, the institute is undergoing a significant transformation.
+                </p>
+                <p class="text-muted fs-5 lh-lg">
+                    The up-gradation of HIMA P&VI to <strong>"HIMA College of Engineering Technology"</strong> is an essential requirement to teach modern and updated technologies. 
+                    The college functions under the aegis of AHI and MAWE.
+                </p>
+                <p class="text-muted fs-5 lh-lg mb-2">Initially, the following Engineering Technology Programs are planned to be started:</p>
+                <ul class="text-muted fs-5">
+                    <li>Civil Engineering Technology</li>
+                    <li>Electrical Engineering Technology</li>
+                </ul>
+            </div>
+        </div>
 
-                    <hr class="my-5 opacity-25" />
+        <a class="btn btn-success rounded-0 px-4 py-2 fw-bold text-uppercase mt-4" 
+           data-bs-toggle="collapse" 
+           href="#detailedIntro" 
+           role="button" 
+           aria-expanded="false" 
+           onclick="this.innerHTML = (this.innerHTML.includes('View Full Info') ? 'Show Less <i class=\'fas fa-chevron-up ms-1\'></i>' : 'View Full Info <i class=\'fas fa-chevron-down ms-1\'></i>')">
+            View Full Info <i class="fas fa-chevron-down ms-1"></i>
+        </a>
+    </div>
+
+    <hr class="my-5 opacity-25" />
+</div>
 
                     <!-- SECTION 2: The Himalayan Legacy (Parent Organization) -->
                     <div class="mb-5">

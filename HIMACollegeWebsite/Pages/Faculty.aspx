@@ -36,10 +36,10 @@
                              onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.classList.replace('shadow', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
                                 <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
-                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                    <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
+                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("FullName") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
                                     <p class="text-muted mb-0" style="font-size: 0.75rem;"><%# Eval("Qualification") %></p>
                                 </div>
@@ -69,10 +69,10 @@
                              onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.classList.replace('shadow', 'shadow-sm'); this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
                                 <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
-                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                    <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
+                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("FullName") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
                                     <p class="text-muted mb-0" style="font-size: 0.75rem;"><%# Eval("Qualification") %></p>
                                 </div>
@@ -102,10 +102,10 @@
                              onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
                                 <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
-                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                    <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
+                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("FullName") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
                                     <p class="text-muted mb-0" style="font-size: 0.75rem;"><%# Eval("Qualification") %></p>
                                 </div>
@@ -135,10 +135,10 @@
                              onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
                                 <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
-                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                    <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("Name") %></h6>
+                                    <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("FullName") %></h6>
                                     <p class="small text-success fw-bold mb-1"><%# Eval("Designation") %></p>
                                     <p class="text-muted mb-0" style="font-size: 0.75rem;"><%# Eval("Qualification") %></p>
                                 </div>
@@ -168,7 +168,7 @@
                              onmouseout="this.style.transform='translateY(0px)'; this.style.borderTopWidth='4px'; this.querySelector('img').style.transform='scale(1)';" >
                             <div class="d-flex align-items-center">
                                 <div class="me-3 overflow-hidden" style="width:80px; height:100px; flex-shrink: 0;">
-                                    <img src='<%# Eval("ImagePath") %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
+                                    <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' class="w-100 h-100 bg-light object-fit-cover transition-all" style="transition: transform 0.5s ease;" onerror="this.src='https://via.placeholder.com/80x100'"/>
                                 </div>
                                 <div>
                                     <h6 class="fw-bold text-uppercase mb-1 small"><%# Eval("FullName") %></h6>

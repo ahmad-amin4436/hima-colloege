@@ -222,22 +222,32 @@
                         <div class="table-responsive shadow-sm">
                             <asp:GridView ID="gvFaculty" runat="server" AutoGenerateColumns="False"
                                 CssClass="table table-hover bg-white border align-middle small"
-                                DataKeyNames="FacultyID" OnRowCommand="gvPrograms_RowCommand">
+                                DataKeyNames="FacultyID" OnRowCommand="gvFaculty_RowCommand">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Photo">
                                         <ItemTemplate>
                                             <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' style="width: 45px; height: 45px; object-fit: cover;" class="rounded-circle border" alt="Profile" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                                    <asp:BoundField DataField="FullName" HeaderText="Name" />
                                     <asp:BoundField DataField="Department" HeaderText="Dept" />
                                     <asp:BoundField DataField="Designation" HeaderText="Designation" />
                                     <asp:BoundField DataField="Education" HeaderText="Education" />
                                     <asp:TemplateField HeaderText="Actions" ItemStyle-Width="130px">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="lbEditFac" runat="server" CommandName="EditFac" CommandArgument='<%# Eval("FacultyID") %>' CssClass="btn btn-sm btn-outline-primary py-0 px-2">Edit</asp:LinkButton>
-                                            <asp:LinkButton ID="lbDelFac" runat="server" CommandName="DeleteFac" CommandArgument='<%# Eval("FacultyID") %>' OnClientClick="return confirm('Remove this faculty member?');" CssClass="btn btn-sm btn-outline-danger py-0 px-2">Delete</asp:LinkButton>
-                                        </ItemTemplate>
+                                           
+        <asp:LinkButton ID="btnEditFac" runat="server" 
+            CommandName="EditFac" 
+            CommandArgument='<%# Eval("FacultyID") %>' 
+            CssClass="btn btn-sm btn-outline-primary">Edit</asp:LinkButton>
+            
+        <asp:LinkButton ID="btnDeleteFac" runat="server" 
+            CommandName="DeleteFac" 
+            CommandArgument='<%# Eval("FacultyID") %>' 
+            OnClientClick="return confirm('Delete this record?');" 
+            CssClass="btn btn-sm btn-outline-danger">Delete</asp:LinkButton>
+    </ItemTemplate>
+                                      
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>

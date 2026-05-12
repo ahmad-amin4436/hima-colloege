@@ -14,7 +14,7 @@ namespace HIMACollegeWebsite
 
         private void BindAllDepartments()
         {
-            DataTable dt = DataAccessLayer.GetDataTable("SELECT FullName AS Name, Department, Designation, Education AS Qualification, ImagePath FROM H_Faculty");
+            DataTable dt = DataAccessLayer.GetDataTable("SELECT FullName, Department, Designation, Education AS Qualification, ImagePath FROM H_Faculty");
 
             BindDept(rpCivil, dt, "Civil");
             BindDept(rpElectrical, dt, "Electrical");

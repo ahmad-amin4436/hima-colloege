@@ -25,7 +25,7 @@
                     <!-- Department Heading -->
                     <div class="mb-5">
                         <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2">
-                            DAE <%# Container.DataItem %> Tech
+                             <%# Container.DataItem %> Tech
                         </h2>
                     </div>
 
@@ -96,14 +96,24 @@
     <!-- If you have Session, add it here, otherwise this div ends the Info Line -->
 </div>
 
-<!-- Actions Line - Aligned to Start -->
 <div class="d-flex align-items-center justify-content-start py-3 gap-3">
-    <a href='<%# Eval("PdfPath") %>' target="_blank" class="text-decoration-none text-dark fw-bold link-success transition">
+    <!-- VIEW LINK -->
+    <asp:HyperLink ID="lnkViewScheme" runat="server" 
+        NavigateUrl='<%# Eval("PdfPath") %>' 
+        Target="_blank"
+        Visible='<%# !string.IsNullOrEmpty(Eval("PdfPath").ToString()) %>'
+        CssClass="text-decoration-none text-dark fw-bold link-success transition">
         <i class="bi bi-file-earmark-pdf text-danger me-1"></i> VIEW SCHEME OF STUDIES
-    </a>
-    <a href='<%# Eval("PdfPath") %>' download class="btn btn-success btn-sm px-4 fw-bold shadow-sm">
+    </asp:HyperLink>
+
+    <!-- DOWNLOAD LINK -->
+    <asp:HyperLink ID="lnkDownScheme" runat="server" 
+        NavigateUrl='<%# Eval("PdfPath") %>'
+        Download="Scheme_of_Studies"
+        Visible='<%# !string.IsNullOrEmpty(Eval("PdfPath").ToString()) %>'
+        CssClass="btn btn-success btn-sm px-4 fw-bold shadow-sm">
         DOWNLOAD PDF
-    </a>
+    </asp:HyperLink>
 </div>
                                     </div>
                                 </div>
