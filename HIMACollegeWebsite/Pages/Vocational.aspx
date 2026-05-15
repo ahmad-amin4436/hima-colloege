@@ -26,7 +26,7 @@
                     <!-- Department Heading -->
                     <div class="mb-5">
                         <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2">
-                             <%# Container.DataItem %> Tech
+                             <%# Container.DataItem %> Courses
                         </h2>
                     </div>
 
@@ -37,7 +37,7 @@
 
                                 
                                 <div class="row align-items-center border-bottom pb-5 g-0">
-                                    <h1 class="fw-bold text-secondary opacity-10 mt-2">0<%# Container.ItemIndex + 1 %></h1>
+                                       <h1 class="fw-bold text-secondary opacity-10 mt-2"><%# Container.ItemIndex + 1 < 10 ? "0" : "" %><%# Container.ItemIndex + 1 %></h1>
                                     <br />
                                     <div class="py-2">
                                         <h3 class="fw-bold text-uppercase mb-0 text-success"><%# Eval("Title") %></h3>

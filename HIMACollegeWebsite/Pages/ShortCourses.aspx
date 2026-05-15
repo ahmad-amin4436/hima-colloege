@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="Short Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ShortCourses.aspx.cs" Inherits="HIMACollegeWebsite.ShortCourses" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- 1. Hero Section -->
@@ -18,7 +17,7 @@
     </div>
 
     <!-- 2. Main Section Repeater -->
-    <asp:Repeater ID="rpShortDepartments" runat="server" OnItemDataBound="rpShortDepartments_ItemDataBound">
+    <asp:Repeater ID="rpSCDepartments" runat="server" OnItemDataBound="rpSCDepartments_ItemDataBound">
         <ItemTemplate>
             <section class='<%# Container.ItemIndex % 2 == 0 ? "py-5 bg-white" : "py-5 bg-light" %>'>
                 <div class="container py-5">
@@ -26,18 +25,18 @@
                     <!-- Department Heading -->
                     <div class="mb-5">
                         <h2 class="fw-bold text-uppercase border-bottom border-success border-3 d-inline-block pb-2">
-                             <%# Container.DataItem %> Tech
+                             <%# Container.DataItem %> 
                         </h2>
                     </div>
 
                     <div class="d-flex flex-column gap-5">
-                        <asp:Repeater ID="rpShortPrograms" runat="server">
+                        <asp:Repeater ID="rpSCPrograms" runat="server" OnItemDataBound="rpSCPrograms_ItemDataBound">
                             <ItemTemplate>
 
 
                                 
                                 <div class="row align-items-center border-bottom pb-5 g-0">
-                                    <h1 class="fw-bold text-secondary opacity-10 mt-2">0<%# Container.ItemIndex + 1 %></h1>
+                                    <h1 class="fw-bold text-secondary opacity-10 mt-2"><%# Container.ItemIndex + 1 < 10 ? "0" : "" %><%# Container.ItemIndex + 1 %></h1>
                                     <br />
                                     <div class="py-2">
                                         <h3 class="fw-bold text-uppercase mb-0 text-success"><%# Eval("Title") %></h3>
@@ -97,6 +96,7 @@
     <!-- If you have Session, add it here, otherwise this div ends the Info Line -->
 </div>
 
+<div class="d-flex align-items-center justify-content-start py-3 gap-3">
     <!-- VIEW LINK -->
     <asp:HyperLink ID="lnkViewScheme" runat="server" 
         NavigateUrl='<%# Eval("PdfPath") %>' 

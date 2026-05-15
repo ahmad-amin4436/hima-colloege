@@ -22,7 +22,7 @@ namespace HIMACollegeWebsite
         {
             try
             {
-                string query = "SELECT Category FROM H_Programs WHERE Category LIKE 'ShortCourses%' GROUP BY Category ORDER BY Category ASC";
+                string query = "SELECT Category FROM H_Programs WHERE Category LIKE 'Short Course%' GROUP BY Category ORDER BY Category ASC";
                 DataTable dtCategories = DataAccessLayer.GetDataTable(query);
 
                 if (dtCategories != null && dtCategories.Rows.Count > 0)
@@ -31,8 +31,8 @@ namespace HIMACollegeWebsite
                                                  .Select(r => r.Field<string>("Category"))
                                                  .ToList();
 
-                    rpShortDepartments.DataSource = categories;
-                    rpShortDepartments.DataBind();
+                    rpSCDepartments.DataSource = categories;
+                    rpSCDepartments.DataBind();
                 }
             }
             catch (Exception)
@@ -41,12 +41,13 @@ namespace HIMACollegeWebsite
             }
         }
 
-        protected void rpShortDepartments_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void rpSCDepartments_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 string categoryName = (string)e.Item.DataItem;
-                Repeater rpInner = (Repeater)e.Item.FindControl("rpShortPrograms");
+                // CHANGE THIS: Match the ID from your .aspx file
+                Repeater rpInner = (Repeater)e.Item.FindControl("rpSCPrograms");
 
                 if (rpInner != null)
                 {
@@ -60,7 +61,7 @@ namespace HIMACollegeWebsite
             }
         }
 
-        protected void rpShortPrograms_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void rpSCPrograms_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {

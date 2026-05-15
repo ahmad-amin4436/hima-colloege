@@ -306,12 +306,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Admissions\" />
-    <Folder Include="Uploads\BSPrograms\" />
     <Folder Include="Uploads\DAEPrograms\" />
     <Folder Include="Uploads\Faculty\" />
-    <Folder Include="Uploads\ShortCourses\" />
     <Folder Include="Uploads\Syllabus\" />
-    <Folder Include="Uploads\Vocational\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

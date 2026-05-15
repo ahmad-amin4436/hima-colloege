@@ -124,7 +124,7 @@ namespace HIMACollegeWebsite
         private void BindFaculty()
         {
             // Selecting columns needed for the GridView display
-            string sql = "SELECT FacultyID, FullName AS NAME, Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC";
+            string sql = "SELECT FacultyID, FullName , Department, Designation, Education, ImagePath FROM H_Faculty ORDER BY FacultyID DESC";
             gvFaculty.DataSource = DataAccessLayer.GetDataTable(sql);
             gvFaculty.DataBind();
         }
